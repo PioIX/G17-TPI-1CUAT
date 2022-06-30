@@ -24,7 +24,7 @@ La aplicación que desarrollaremos será un Quiz mediantes el cual con preguntas
 
 En sí, la página tendrá distintas pestañas. La pestaña principal consta del logo del juego y tres botones: jugar, ranking e información. La pestaña de información brindará una breve explicación acerca del juego y los ODS en los cuales nos enfocaremos.
 
-Una vez clickeado el botón “jugar” se redirigirá al jugador hacia una nueva pestaña en la cual deberá ingresar un nickname el cual quedará guardado en la base de datos. Después de esto pasará a la pestaña de juego en donde se encontrarán un total de 20 laptops acomodadas en una tabla de 5x4 y un botón para volver a la pestaña principal. Estas laptops tendrán sobre sí su valor de puntaje. Mientras el valor sea más alto, la pregunta que contenga será más difícil. 
+Una vez clickeado el botón “jugar” se redirigirá al jugador hacia una nueva pestaña en la cual deberá ingresar un nickname el cual quedará guardado en la base de datos. Después de esto pasará a la pestaña de juego en donde se encontrarán un total de 20 laptops acomodadas en una tabla de 6x3 y un botón para volver a la pestaña principal. Estas laptops tendrán sobre sí su valor de puntaje. Mientras el valor sea más alto, la pregunta que contenga será más difícil. 
 
 Al clickear sobre cualquiera de las laptops en pantalla, las preguntas y las respuestas aparecerán simulando que están dentro de la pantalla de la laptop. De las cuatro posibles respuestas el jugador deberá elegir únicamente una y si responde bien, se sumará a un “puntaje total” el valor de la laptop.
 
