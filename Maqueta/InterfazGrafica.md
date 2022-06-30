@@ -14,4 +14,6 @@
 
 ![8](https://user-images.githubusercontent.com/101184306/176738264-b97bfba0-1d9f-4781-9bcc-9f9a4cbc7af8.jpg)
 
-![9](https://user-images.githubusercontent.com/101184306/176738283-4ce18a4a-0193-4e3b-a3b1-55de5a75e0c2.jpg)
+![!](https://user-images.githubusercontent.com/101184306/176740070-63b3ea3f-075a-454e-802d-323edc9cb483.jpg)
+
+**LOGO HECHO POR NOSOTROS MISMOS EN ADOBE ILUSTRATOR**
