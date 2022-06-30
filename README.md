@@ -67,19 +67,16 @@ Responsabilidades
 	Vega Torre → 1, 2, 5, 6 y 7.
 
 ____________________________________________________________________________
-Primer entregable (30/6)
+ * Primer entregable (30/6)
+   * Estructura de la base de datos
+   * Reglas y puntajes
+   * Maqueta html
 
-Estructura de la base de datos
-Preguntas y respuestas
-Reglas y puntajes
-Maqueta html
+ * Segundo entregable (7/7)
+   * API en flask de preguntas y respuestas
+   * Preguntas y respuestas
+   * UI de preguntas y respuestas en conjunto con back-end
+   * Pruebas de juego
 
-Segundo entregable (7/7)
-
-API en flask de preguntas y respuestas
-UI de preguntas y respuestas en conjunto con back-end
-Pruebas de juego
-
-Tercer entregable (14/7)
-
-Juego completo en línea
+* Tercer entregable (14/7)
+   * Juego completo en línea
