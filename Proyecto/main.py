@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, render_template, request, send_from_directory, url_for, flash, redirect
+from flask import Flask, render_template, url_for
 
 app = Flask(__name__)
 
