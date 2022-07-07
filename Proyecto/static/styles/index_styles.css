@@ -129,10 +129,11 @@ section .interfaz-botones{
   z-index: 2;
 }
 
+
 .interfaz-botones .jugar{
   width: 90%;
   height: 100px;
-  margin:5%;
+  margin: 5%;
   font-size: 5rem;
   z-index: 2;
 }
@@ -189,7 +190,7 @@ a {
 }
 
 a:hover {
-	color: #2ecc71;
+	color: var(--violeta);
 }
 
 #menuToggle {

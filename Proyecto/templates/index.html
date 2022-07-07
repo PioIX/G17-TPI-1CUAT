@@ -14,7 +14,7 @@
             <div class="navegador-logo">
 
                 <div class="logo">
-                    <img src="Img/LOGO.png" alt="" class="logo-f">
+                    <img src="{{ url_for('static', filename = 'img/LOGO.png')}}" alt="" class="logo-f">
                 </div>
                 
             </div>
@@ -28,13 +28,16 @@
                         <span></span>
                         <span></span>
                         <ul id="menu">
-                            <a href="#">
+                            <a href="https://www.un.org/sustainabledevelopment/es/2015/09/la-asamblea-general-adopta-la-agenda-2030-para-el-desarrollo-sostenible/#:~:text=La%20Asamblea%20General%20de%20la,el%20acceso%20a%20la%20justicia." target="_blank">
                                 <li>Agenda 2030</li>
                             </a>
-                            <a href="#">
-                                <li>Mas sobre ODS</li>
+                            <a href="https://www.un.org/sustainabledevelopment/es/cities/" target="_blank">
+                                <li>ODS 11</li>
                             </a>
-                            <a href="#">
+                            <a href="https://www.un.org/sustainabledevelopment/es/sustainable-consumption-production/" target="_blank">
+                                <li>ODS 12</li>
+                            </a>
+                            <a href="#" target="_blank">
                                 <li>Acerca de nosotros</li>
                             </a>
  
@@ -59,8 +62,8 @@
     
         <section class="interfaz-botones">
             <div class="boton-jugar">
-                <button class="jugar" id="estilo-boton" href="{{url_for('guardar_nickname')}}">
-                    JUGAR
+                <button class="jugar" id="estilo-boton">
+                    <a href="{{url_for('guardar_nickname')}}">JUGAR</a>
                 </button>
             </div>
     

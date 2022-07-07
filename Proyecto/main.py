@@ -11,14 +11,7 @@ def mostar_index():
 
 @app.route("/register")
 def guardar_nickname():
-  conn = sqlite3.connect('ODS.db')
-
-  q = f"""INSERT INTO Nombres
-      Values (1)"""
-  z = conn.execute(q)
-  conn.commit(z)
   return render_template('nickname.html')
-  conn.close()
   
 @app.route("/ranking")
 def ranking():
@@ -28,8 +21,9 @@ def ranking():
           ORDER BY Puntaje DESC
           LIMIT 10"""
   x = conn.execute(q)
-  return render_template('ranking.html', lineamostrar = x)
   conn.close()
+  return render_template('ranking.html', lineamostrar = x)
+  
 
 @app.route("/información")
 def informacion():
