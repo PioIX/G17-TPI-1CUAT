@@ -161,7 +161,10 @@ section .interfaz-botones{
   box-shadow: 5px 5px 5px var(--blanquito); 
   border: var(--blanquito);
   font-family: 'Adventure-Subtitles';
-  text-shadow:var(--neon)
+  text-shadow:var(--neon);
+  border-left: 2px solid var(--blanquito);
+  border-top: 2px solid var(--blanquito);
+  cursor: pointer;
   
 }
 
