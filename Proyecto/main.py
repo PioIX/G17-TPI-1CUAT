@@ -10,9 +10,8 @@ def mostar_index():
   return render_template('index.html')
 
 @app.route("/register")
-def guardar_nickname():
+def guardarnickname():
   return render_template('nickname.html')
-
 
 @app.route("/ranking")
 def ranking():
@@ -28,5 +27,9 @@ def ranking():
 @app.route("/información")
 def informacion():
   return render_template('informacion.html')
+
+@app.route("/game")
+def mostrar_juego():
+  return render_template('juego.html')
 
 app.run(host='0.0.0.0', port=81)
