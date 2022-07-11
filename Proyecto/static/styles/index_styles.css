@@ -105,6 +105,7 @@ hr{
   width: 80%;
   height: auto;
   margin: auto;
+  margin-top: 40px;
   display: flex;
   z-index: 2;
   flex-direction: column;
@@ -115,7 +116,7 @@ section .texto-1 {
   font-size: 8rem;
   color: var(--violeta);
   margin: auto;
-  margin-top: 10px;
+  margin-top: 20px;
   z-index: 2;
   font-family: 'Adventure-Subtitles';
   text-shadow: var(--neon);
