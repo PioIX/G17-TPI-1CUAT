@@ -189,7 +189,7 @@ a {
 }
 
 a:hover {
-	color: #2ecc71;
+	color: var(--violeta);
 }
 
 #menuToggle {
