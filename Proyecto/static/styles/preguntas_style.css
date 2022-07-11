@@ -1,0 +1,125 @@
+@font-face {
+font-family: 'Adventure-Subtitles';
+src:url('Fonts/Adventure-Subtitles.ttf.woff') format('woff'),
+    url('Adventure-Subtitles.ttf.svg#Adventure-Subtitles') format('svg'),
+    url('Fonts/Adventure-Subtitles.ttf.eot'),
+    url('Adventure-Subtitles.ttf.eot?#iefix') format('embedded-opentype'); 
+font-weight: normal;
+font-style: normal;
+}
+
+:root{
+--gris-medio-claro:  #474646;
+--gris-oscuro: #1C262A; 
+--violeta:  #C8B6FF;
+--blanquito: #E7ECEF;
+--gris-claro:  #A6A6A6;
+--neon: 0 0 2px #C8B6FF,0 0 30px #C8B6FF,0px 0px 5px #C8B6FF, 0 0 150px #C8B6FF;
+}
+
+body{
+    background-color: var(--gris-oscuro);
+}
+
+.contenedor{
+    width: 94%;
+    height: 825px;
+    background-color: var(--gris-claro);
+    margin: auto;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.respuestas1-cont{
+    background-color: var(--gris-claro);
+    height: 23%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.respuestas2-cont{
+    background-color: var(--gris-claro);
+    height: 23%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cont-pregunta{
+    height: 22%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 4%;
+}
+
+.cont-respuesta{
+    width: 48.5%;
+    height: 98%;
+}
+
+#estilo-boton{
+background-color: var(--gris-oscuro);
+color: var(--violeta);
+border-radius: 1em;
+box-shadow: 5px 5px 5px var(--blanquito); 
+border: var(--blanquito);
+text-shadow:var(--neon);
+border-left: 2px solid var(--blanquito);
+border-top: 2px solid var(--blanquito);
+cursor: pointer;
+}
+
+.hp-logo{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    margin: auto;
+    margin-top: 0.8%;
+}
+
+.pregunta{
+    width: 100%;
+    font-size: 50px;
+    text-align: center;
+}
+
+.respuesta{
+    width: 100%;
+    font-size: 50px;
+    text-align: center;
+}
+
+/* Barra de windows */
+
+.windows-bar{
+    width: 100%;
+    margin: auto;
+    margin-bottom: 0px;
+}
+
+.taskbar{
+background-color: #f3f3f3;
+width: 100%;
+height: 50px;
+bottom: 0;
+display: flex;
+z-index: 110;
+justify-content: space-between;
+}
+
+.right{
+justify-self: flex-end;
+right: 0;
+margin: 6px 0;
+height: 85%;
+}
