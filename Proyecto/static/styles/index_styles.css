@@ -131,9 +131,9 @@ section .interfaz-botones{
 
 .interfaz-botones .jugar{
   width: 90%;
-  height: 100px;
+  height: 150px;
   margin:5%;
-  font-size: 5rem;
+  font-size: 6rem;
   z-index: 2;
 }
 

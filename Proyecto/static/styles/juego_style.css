@@ -1,3 +1,13 @@
+@font-face {
+font-family: 'Adventure-Subtitles';
+src:url('Fonts/Adventure-Subtitles.ttf.woff') format('woff'),
+    url('Adventure-Subtitles.ttf.svg#Adventure-Subtitles') format('svg'),
+    url('Fonts/Adventure-Subtitles.ttf.eot'),
+    url('Adventure-Subtitles.ttf.eot?#iefix') format('embedded-opentype'); 
+font-weight: normal;
+font-style: normal;
+}
+
 :root{
 --gris-medio-claro:  #474646;
 --gris-oscuro: #1C262A; 
@@ -66,12 +76,13 @@ body{
 .texto{
     color: var(--blanquito);
     font-size: 2em;
+    font-family: 'Adventure-Subtitles';
 }
 
 .puntajes{
     color: var(--blanquito);
     font-size: 2em;
-
+    font-family: 'Adventure-Subtitles';
 }
 
 .contenedor-laptops{

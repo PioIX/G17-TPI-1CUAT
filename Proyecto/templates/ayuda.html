@@ -4,14 +4,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ODS QUIZ</title>
-    <link rel="stylesheet" href="ayuda_style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='styles/ayuda_style.css) }}">
 </head>
 <body>
     <section class="contenedor">
         <div class="header">
             <div class="contenedor-chico">
                 <div class="imagen">
-                    <img src="img/LOGO.png" alt="" >
+                    <img src="{{ url_for('static', filename = 'img/LOGO.png')}}" alt="" >
                 </div>
                 <div class="linea">
 
@@ -26,7 +26,7 @@
     </section>
     <section class="contenedor-informacion">
         <div class="informacion">
-            <p >  
+            <p>  
                 - El juego consiste en una serie de tablets, más específicamente 18 de ellas, las cuales al pasar el cursor sobre alguna de ellas, el puntaje que ésta otorga podrá verse. </br>
             </br>
                 - Al hacer click sobre alguna, vas a ser direccionado a la interfaz de la tablet donde se mostrará la pregunta y 4 posibilidades de respuestas, una de ellas correcta. </br>
@@ -43,7 +43,7 @@
     </section>
     <footer class="pie-de-pagina">
         <div class="inicio">
-            <img src="img/casa-inicio.png" alt="" href="">
+            <img src="{{ url_for('static', filename = 'img/casa-inicio.png)}}" alt="" href="">
         </div>
     </footer>
 </body>
