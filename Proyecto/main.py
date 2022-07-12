@@ -1,17 +1,17 @@
 import sqlite3
-from flask import Flask, render_template, Response, request, redirect, url_for
+from flask import Flask, render_template, Response, request, redirect, session, url_for
 
 app = Flask(__name__)
 
 #app.secret_key = ""
 
 @app.route("/")
-def mostar_index():
+def index():
   return render_template('index.html')
 
 @app.route("/register") 
 def guardarnickname():
-  return render_template('nickname.html')
+        return render_template('nickname.html')
 
 @app.route("/ranking")
 def ranking():
@@ -25,12 +25,19 @@ def ranking():
   return render_template('ranking.html', lineamostrar = x)
   
 
-@app.route("/información")
+@app.route("/ayuda")
 def informacion():
   return render_template('ayuda.html')
 
-@app.route("/game")
+@app.route("/game", methods=['POST', 'GET'])
 def mostrar_juego():
-  return render_template('juego.html')
+    name = request.form['nombre']
+    print(name)
+    conn = sqlite3.connect('ODS.db')
+    q = f"""INSERT INTO Ranking(Nombre, Puntaje) VALUES("{name}", 0)"""
+    conn.execute(q)
+    conn.commit()
+    conn.close()
+    return render_template('juego.html')
 
 app.run(host='0.0.0.0', port=81)
