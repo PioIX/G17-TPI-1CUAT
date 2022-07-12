@@ -27,7 +27,7 @@ def ranking():
 
 @app.route("/información")
 def informacion():
-  return render_template('informacion.html')
+  return render_template('ayuda.html')
 
 @app.route("/game")
 def mostrar_juego():
