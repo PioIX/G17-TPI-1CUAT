@@ -37,6 +37,9 @@
                             <a href="https://www.un.org/sustainabledevelopment/es/sustainable-consumption-production/" target="_blank">
                                 <li>ODS 12</li>
                             </a>
+                            <a href="https://www.un.org/sustainabledevelopment/es/sustainable-consumption-production/" target="_blank">
+                                <li>ODS 12</li>
+                            </a>
                             <a href="#" target="_blank">
                                 <li>Acerca de nosotros</li>
                             </a>
@@ -62,22 +65,20 @@
     
         <section class="interfaz-botones">
             <div class="boton-jugar">
-                <button class="jugar" id="estilo-boton">
-                    <a href="{{url_for('guardar_nickname')}}">JUGAR</a>
+                <button onclick="window.location.href='{{ url_for('guardarnickname')}}';" class="jugar" id="estilo-boton">
+                    JUGAR
                 </button>
             </div>
-    
             <div class="boton-ranking-ayuda">
-                <button class="ranking" id="estilo-boton" href="{{url_for('ranking')}}">
+                <button onclick="window.location.href='{{ url_for('ranking')}}';" class="ranking" id="estilo-boton">
                     RANKING
                 </button>
-                <button class="ayuda" id="estilo-boton" href="{{url_for('informacion')}}">
+                <button onclick="window.location.href='{{ url_for('informacion')}}';" class="ayuda" id="estilo-boton">
                     AYUDA
                 </button>
             </div>
         </section>
     </section>
-
     
     <div class="sidePanel">
         <div class="pixelCon">

@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, Response, request, redirect, url_for
 
 app = Flask(__name__)
 
@@ -9,10 +9,10 @@ app = Flask(__name__)
 def mostar_index():
   return render_template('index.html')
 
-@app.route("/register")
-def guardar_nickname():
+@app.route("/register") 
+def guardarnickname():
   return render_template('nickname.html')
-  
+
 @app.route("/ranking")
 def ranking():
   conn = sqlite3.connect('ODS.db')
@@ -28,5 +28,9 @@ def ranking():
 @app.route("/información")
 def informacion():
   return render_template('informacion.html')
+
+@app.route("/game")
+def mostrar_juego():
+  return render_template('juego.html')
 
 app.run(host='0.0.0.0', port=81)
