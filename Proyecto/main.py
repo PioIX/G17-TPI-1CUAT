@@ -9,9 +9,9 @@ app = Flask(__name__)
 def index():
   return render_template('index.html')
 
-@app.route("/register") 
+@app.route("/register")
 def guardarnickname():
-        return render_template('nickname.html')
+  return render_template('nickname.html')
 
 @app.route("/ranking")
 def ranking():
@@ -31,13 +31,17 @@ def informacion():
 
 @app.route("/game", methods=['POST', 'GET'])
 def mostrar_juego():
-    name = request.form['nombre']
-    print(name)
-    conn = sqlite3.connect('ODS.db')
-    q = f"""INSERT INTO Ranking(Nombre, Puntaje) VALUES("{name}", 0)"""
-    conn.execute(q)
-    conn.commit()
-    conn.close()
-    return render_template('juego.html')
+  name = request.form['nombre']
+  print(name)
+  conn = sqlite3.connect('ODS.db')
+  q = f"""INSERT INTO Ranking(Nombre, Puntaje) VALUES('{name}', 0)"""
+  conn.execute(q)
+  conn.commit()
+  conn.close()
+  return render_template('juego.html')
+
+@app.route("/game/pregunta")
+def pregunta():
+  return render_template("preguntas.html")
 
 app.run(host='0.0.0.0', port=81)
