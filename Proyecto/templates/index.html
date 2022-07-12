@@ -61,19 +61,18 @@
         </section>
     
         <section class="interfaz-botones">
-            <div class="boton-jugar">
-                <button onclick="window.location.href='{{ url_for('guardarnickname')}}';" class="jugar" id="estilo-boton">
-                    JUGAR
-                </button>
-            </div>
-            <div class="boton-ranking-ayuda">
-                <button onclick="window.location.href='{{ url_for('ranking')}}';" class="ranking" id="estilo-boton">
-                    RANKING
-                </button>
-                <button onclick="window.location.href='{{ url_for('informacion')}}';" class="ayuda" id="estilo-boton">
-                    AYUDA
-                </button>
-            </div>
+
+            <button onclick="window.location.href='{{ url_for('guardarnickname')}}';" class="jugar" id="estilo-boton">
+            JUGAR
+            </button>
+            
+            <button onclick="window.location.href='{{ url_for('ranking')}}';" class="ranking" id="estilo-boton">
+                RANKING
+            </button>
+            <button onclick="window.location.href='{{ url_for('informacion')}}';" class="ayuda" id="estilo-boton">
+                AYUDA
+            </button>
+
         </section>
     </section>
     

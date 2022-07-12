@@ -63,7 +63,7 @@ html, body {
 
 header{
   width: 80%;
-  height: 100px;
+  height: 15%;
   margin: auto;
   z-index: 2;
 }
@@ -103,9 +103,9 @@ hr{
 
 .parametros{
   width: 80%;
-  height: auto;
+  height: 85%;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 20px;
   display: flex;
   z-index: 2;
   flex-direction: column;
@@ -113,48 +113,54 @@ hr{
 }
 
 section .texto-1 {
-  font-size: 8rem;
+  font-size: 6rem;
   color: var(--violeta);
   margin: auto;
-  margin-top: 20px;
+  margin-top: 10px;
   z-index: 2;
   font-family: 'Adventure-Subtitles';
   text-shadow: var(--neon);
+
 }
 
 section .interfaz-botones{
   width: 60%;
-  height: 100%;
+  height: auto;
   margin: auto;
-  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 10%;
   z-index: 2;
+
 }
 
-
-.interfaz-botones .jugar{
+.jugar{
   width: 90%;
   height: 150px;
-  margin:5%;
+  margin-left:5%;
+  margin-top: 5%;
+  margin-bottom: 4%;
   font-size: 6rem;
   z-index: 2;
 }
 
-.interfaz-botones .ranking{
+.ranking{
   width: 43%;
   height: 80px;
-  margin-left: 5%;
   z-index: 2;
+  margin-left:5%;
   font-size: 2.5rem;
 }
 
-.interfaz-botones .ayuda{
+.ayuda{
   width: 43%;
   height: 80px;
-  margin-right: 30px;
-  margin-bottom: 5%;
   margin-left: 4%;
   font-size: 2.5rem;
+
 }
+
 
 #estilo-boton{
   background-color: var(--gris-oscuro);
