@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ODS QUIZ</title>
-    <link rel="stylesheet" href="fin-juego_style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fin-juego_style.css') }}">
 </head>
 <body>
     <section class="primer-contenedor">
@@ -108,6 +108,6 @@
           <div class="pixel"></div>
         </div>
     </div>
-    <script src="main.js"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 </html>
