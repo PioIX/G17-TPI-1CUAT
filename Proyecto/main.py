@@ -40,4 +40,8 @@ def mostrar_juego():
   conn.close()
   return render_template('juego.html')
 
+@app.route("/game/final")
+def mostrar_final():
+  return render_template('fin-juego.html')
+
 app.run(host='0.0.0.0', port=81)
