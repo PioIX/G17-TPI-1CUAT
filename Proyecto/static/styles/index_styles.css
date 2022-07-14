@@ -130,7 +130,7 @@ section .interfaz-botones{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 10%;
+  margin-bottom: 20%;
   z-index: 2;
 
 }
