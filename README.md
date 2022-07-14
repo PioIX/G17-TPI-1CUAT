@@ -8,6 +8,8 @@
 Propuesta de trabajo                                                
 Grupo:	17 División: A    
 
+LA CONTRIBUCIÒN DE Nicolas Gil Rodriguez FUE UN ERROR CUANDO HICIMOS EL COMMIT CON EL GITHUB DESKTOP
+
 Integrantes:
 Matteo Bobasso, Ramiro Boulos, Augusto Florio, Gabriel Iacomini y Felipe Vega Torre
 ____________________________________________________________________________
