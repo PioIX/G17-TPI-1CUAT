@@ -74,7 +74,7 @@ body{
 }
 
 .texto{
-    color: var(--blanquito);
+    color: var(--violeta);
     font-size: 2em;
     font-family: 'Adventure-Subtitles';
 }
@@ -119,7 +119,7 @@ body{
 
 #estilo-laptops img{
     margin-top: 10px;
-    margin-left: 35px;
+
     width: 75%;
     height: 95%;  
 }

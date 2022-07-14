@@ -19,7 +19,7 @@
                 </div>
                 <div class="puntaje">
                     <div class="texto">
-                        Puntaje
+                        PUNTAJE
                     </div>
                     <div class="puntajes">
                         1234
@@ -31,22 +31,22 @@
     <section class="contenedor-laptops">
         <div class="primer-contenedor" >
             <div class="container" id="estilo-laptops">
-                <img id="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="" onmouseover="">
+                <img name="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="" onmouseover="mostarPuntos25(this)">
             </div>
             <div class="container" id="estilo-laptops">
-                <img id="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="" onmouseover="">
+                <img name="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="" onmouseover="">
             </div>
             <div class="container" id="estilo-laptops">
-                <img id="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="" onmouseover="">
+                <img name="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="" onmouseover="">
             </div>
             <div class="container" id="estilo-laptops">
-                <img id="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="" onmouseover="">
+                <img name="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="" onmouseover="">
             </div>
             <div class="container" id="estilo-laptops">
-                <img id="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="" onmouseover="">
+                <img name="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="" onmouseover="">
             </div>
             <div class="container" id="estilo-laptops">
-                <img id="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="" onmouseover="">
+                <img name="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="" onmouseover="">
             </div>
         </div>
 
@@ -100,5 +100,6 @@
             <img src="{{ url_for('static', filename = 'img/ayuda(1).png')}}" alt="" onclick="window.location.href='{{ url_for('informacion')}}';">
         </div>
     </footer>
+    <script src="{{url_for('static', filename='scripts/main.js')}}"></script>
 </body>
 </html>
