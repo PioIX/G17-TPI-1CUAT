@@ -26,17 +26,30 @@ class Jugador{
   }
 
   ganarPuntos()
-}*/
+}
 
 
 function mostarPuntos25(elememento){
   console.log(elememento)
-  elememento.outerHTML =`<img name="tablet-25" src="/static/img/+25.png" style="flex; width: 35%; height: 80%; " alt="" onclick="" onmouseout="volverNormal(this)"></img>`;
+  elememento.outerHTML =`<img name="tablet-25" src="/static/img/+25.png"></img>`;
+  elememento.style.width = "75%";
+  elememento.style.height = "95%";
   
-}
+} 
 
 function volverNormal(elememento){
   console.log(elememento)
   elememento.outerHTML =`<img name="tablet-25" src="/static/img/tablet-apagada.png" alt="" onclick="" onmouseover="mostarPuntos25(this)">`;
+  elememento.style.width = "75%";
+  elememento.style.height = "95%";
+}*/
+
+function chnagePic1(){
+  document.getElementsByName("tablet-25").src ="static/img/+25.png";
+
+}
+
+function chnagePic2(){
+  document.getElementsByName("tablet-25").src ="static/img/tablet-apagada.png";
   
 }
