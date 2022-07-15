@@ -45,11 +45,13 @@ function volverNormal(elememento){
 }*/
 
 function chnagePic1(){
-  document.getElementsByName("tablet-25").src ="static/img/+25.png";
-
+  document.getElementById("img1").src ="static/img/+25.png";
+  document.getElementById("img1").src.style.width = "75%";
+  document.getElementById("img1").src.style.height = "75%";
 }
 
 function chnagePic2(){
-  document.getElementsByName("tablet-25").src ="static/img/tablet-apagada.png";
-  
+  document.getElementById("img1").src ="static/img/tablet-apagada.png";
+  document.getElementById("img1").src.style.width = "75%";
+  document.getElementById("img1").src.style.height = "75%";
 }
