@@ -44,13 +44,13 @@ function volverNormal(elememento){
   elememento.style.height = "95%";
 }*/
 
-function chnagePic1(){
+function changePic1(){
   document.getElementById("img1").src ="static/img/+25.png";
-  document.getElementById("img1").src.style.width = "75%";
-  document.getElementById("img1").src.style.height = "75%";
+  document.getElementById("img1").src.style.width = "5%";
+  document.getElementById("img1").src.style.height = "5%";
 }
 
-function chnagePic2(){
+function changePic2(){
   document.getElementById("img1").src ="static/img/tablet-apagada.png";
   document.getElementById("img1").src.style.width = "75%";
   document.getElementById("img1").src.style.height = "75%";
