@@ -44,14 +44,17 @@ function volverNormal(elememento){
   elememento.style.height = "95%";
 }*/
 
-function changePic1(){
-  document.getElementById("img1").src ="static/img/+25.png";
-  document.getElementById("img1").src.style.width = "5%";
-  document.getElementById("img1").src.style.height = "5%";
+function changePic1(imagen){
+  document.getElementById(imagen).src ="static/img/+25.png";
 }
 
-function changePic2(){
-  document.getElementById("img1").src ="static/img/tablet-apagada.png";
-  document.getElementById("img1").src.style.width = "75%";
-  document.getElementById("img1").src.style.height = "75%";
+function changePic2(imagen){
+  document.getElementById(imagen).src ="static/img/tablet-apagada.png";
+}
+
+
+
+function ingreso(){
+  var nombre_jugador = document.getElementById("nickname").value;
+  console.log(nombre_jugador);
 }
