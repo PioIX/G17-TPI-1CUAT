@@ -45,12 +45,73 @@ function volverNormal(elememento){
 }*/
 
 function changePic1(imagen){
-  document.getElementById(imagen).src ="static/img/+25.png";
+  /*switch (imagen) {
+    case "1":
+      document.getElementById(imagen).src ="static/img/+25.png";
+      break;
+    case "2":
+      document.getElementById(imagen).src ="static/img/+25.png";
+      break;
+    case "3":
+      document.getElementById(imagen).src ="static/img/+25.png";
+      break;
+    case "4":
+      document.getElementById(imagen).src ="static/img/+25.png";
+      break;
+    case "5":
+    document.getElementById(imagen).src ="static/img/+25.png";
+      break;
+    case "6":
+      document.getElementById(imagen).src ="static/img/+50.png";
+      break;
+    case "7":
+      document.getElementById(imagen).src ="static/img/+50.png";
+      break;
+    case "8":
+      document.getElementById(imagen).src ="static/img/+50.png";
+      break;
+    case "9":
+      document.getElementById(imagen).src ="static/img/+50.png";
+      break;
+    case "10":
+      document.getElementById(imagen).src ="static/img/+50.png";
+      break;
+    case "11":
+    document.getElementById(imagen).src ="static/img/+50.png";
+      break;
+    case "12":
+      document.getElementById(imagen).src ="static/img/+50.png";
+      break;
+  }*/
+
+  var imagenes = parseInt(imagen);
+
+  if(imagenes >=1 && imagenes <=6){
+    document.getElementById(imagen).src ="static/img/+25.png";
+  } else if(imagenes >=7 && imagenes <=12){
+    document.getElementById(imagen).src ="static/img/+50.png";
+  } else if(imagenes >= 13 && imagenes <= 18){
+    document.getElementById(imagen).src ="static/img/+100.png";
+  }
+  
+
 }
+
+
 
 function changePic2(imagen){
   document.getElementById(imagen).src ="static/img/tablet-apagada.png";
 }
+
+function changePic3(imagen){
+  document.getElementById(imagen).src ="static/img/+50.png";
+}
+
+function changePic4(imagen){
+  document.getElementById(imagen).src ="static/img/tablet-apagada.png";
+}
+
+
 
 
 
