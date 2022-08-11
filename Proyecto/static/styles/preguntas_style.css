@@ -17,17 +17,15 @@ font-style: normal;
 --neon: 0 0 2px #C8B6FF,0 0 30px #C8B6FF,0px 0px 5px #C8B6FF, 0 0 150px #C8B6FF;
 }
 
-
-
 body{
     background-color: var(--gris-oscuro);
 }
 
 .contenedor{
-    width: 94%;
-    height: 825px;
-    background-color: var(--gris-claro);
+    width: 95%;
+    height: auto;
     margin: auto;
+    background-color: var(--gris-claro);
     margin-top: 3%;
     display: flex;
     flex-direction: column;
@@ -42,6 +40,7 @@ body{
     margin-top: 2%;
     display: flex;
     justify-content: space-between;
+    
 }
 
 .respuestas2-cont{
@@ -51,16 +50,17 @@ body{
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 2%;
+    margin-bottom: 3%;
     display: flex;
     justify-content: space-between;
+    
 }
 
 .cont-pregunta{
     height: 22%;
     width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 4%;
+    margin: auto;
+    margin-top: 3%;
 }
 
 .cont-respuesta{
@@ -81,8 +81,8 @@ body{
 }
 
 .hp-logo{
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
     display: flex;
     margin: auto;
     margin-top: 0.8%;
@@ -98,29 +98,4 @@ body{
     width: 100%;
     font-size: 50px;
     text-align: center;
-}
-
-/* Barra de windows */
-
-.windows-bar{
-    width: 100%;
-    margin: auto;
-    margin-bottom: 0px;
-}
-
-.taskbar{
-    background-color: #f3f3f3;
-    width: 100%;
-    height: 50px;
-    bottom: 0;
-    display: flex;
-    z-index: 110;
-    justify-content: space-between;
-}
-
-.right{
-    justify-self: flex-end;
-    right: 0;
-    margin: 6px 0;
-    height: 85%;
 }
