@@ -9,12 +9,13 @@ font-style: normal;
 }
 
 :root{
---gris-medio-claro:  #474646;
---gris-oscuro: #1C262A; 
---violeta:  #C8B6FF;
---blanquito: #E7ECEF;
---gris-claro:  #A6A6A6;
---neon: 0 0 2px #C8B6FF,0 0 30px #C8B6FF,0px 0px 5px #b3a1e8, 0 0 150px #b19fe4;
+    --gris-medio-claro:  #474646;
+    --gris-oscuro: #1C262A; 
+    --violeta:  #C8B6FF;
+    --blanquito: #E7ECEF;
+    --gris-claro:  #A6A6A6;
+    --neon: 0 0 2px #C8B6FF,0 0 30px #C8B6FF,0px 0px 5px #b3a1e8, 0 0 150px #b19fe4;
+    --neon-blanquito: 0 0 2px #f6f3ff,0 0 30px #f8f6ff,0px 0px 5px #f2f0fa, 0 0 150px #f0eef7;
 }
 
 *{
@@ -77,12 +78,14 @@ body{
     color: var(--violeta);
     font-size: 2em;
     font-family: 'Adventure-Subtitles';
+    text-shadow: var(--neon);
 }
 
 .puntajes{
     color: var(--blanquito);
     font-size: 2em;
     font-family: 'Adventure-Subtitles';
+    text-shadow: var(--neon-blanquito);
 }
 
 .contenedor-laptops{

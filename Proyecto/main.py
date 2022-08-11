@@ -40,6 +40,10 @@ def mostrar_juego():
   conn.close()
   return render_template('juego.html')
 
+@app.route("/game/pregunta")
+def mostrar_pregunta():
+  return render_template('preguntas.html')
+
 @app.route("/game/final")
 def mostrar_final():
   return render_template('fin-juego.html')
