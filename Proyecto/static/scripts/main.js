@@ -97,25 +97,28 @@ function changePic1(imagen){
 
 }
 
-
-
 function changePic2(imagen){
-  document.getElementById(imagen).src ="static/img/tablet-apagada.png";
+
+  var imagenes = parseInt(imagen);
+
+  if(imagenes >=1 && imagenes <=6){
+    document.getElementById(imagen).src ="static/img/tablet-apagada.png";
+  } else if(imagenes >=7 && imagenes <=12){
+    document.getElementById(imagen).src ="static/img/tablet-apagada.png";
+  } else if(imagenes >= 13 && imagenes <= 18){
+    document.getElementById(imagen).src ="static/img/tablet-apagada.png";
+  }
+  
 }
-
-function changePic3(imagen){
-  document.getElementById(imagen).src ="static/img/+50.png";
-}
-
-function changePic4(imagen){
-  document.getElementById(imagen).src ="static/img/tablet-apagada.png";
-}
-
-
 
 
 
 function ingreso(){
   var nombre_jugador = document.getElementById("nickname").value;
   console.log(nombre_jugador);
+}
+
+function cambiarTexto() {
+  var texto = "Hola";
+  document.getElementsByClassName("cont-pregunta").innerHTML = texto;
 }
