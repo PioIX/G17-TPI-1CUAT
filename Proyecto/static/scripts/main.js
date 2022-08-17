@@ -116,6 +116,7 @@ function changePic2(imagen){
 function ingreso(){
   var nombre_jugador = document.getElementById("nickname").value;
   console.log(nombre_jugador);
+
 }
 
 function cambiarTexto() {

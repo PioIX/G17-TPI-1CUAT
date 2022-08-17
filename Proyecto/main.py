@@ -34,7 +34,11 @@ def mostrar_juego():
   name = request.form['nombre']
   print(name)
   conn = sqlite3.connect('ODS.db')
-  q = f"""INSERT INTO Ranking(Nombre, Puntaje) VALUES('{name}', 0)"""
+  if (name != ""):
+    q = f"""INSERT INTO Ranking(Nombre, Puntaje) VALUES('{name}', 0)"""
+  else:
+    pass
+  
   conn.execute(q)
   conn.commit()
   conn.close()

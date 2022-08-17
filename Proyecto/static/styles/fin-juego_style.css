@@ -1,8 +1,8 @@
 @font-face {
 font-family: 'Adventure-Subtitles';
-src:url('fonts/Adventure-Subtitles.ttf.woff') format('woff'),
+src:url('Fonts/Adventure-Subtitles.ttf.woff') format('woff'),
     url('Adventure-Subtitles.ttf.svg#Adventure-Subtitles') format('svg'),
-    url('fonts/Adventure-Subtitles.ttf.eot'),
+    url('Fonts/Adventure-Subtitles.ttf.eot'),
     url('Adventure-Subtitles.ttf.eot?#iefix') format('embedded-opentype'); 
 font-weight: normal;
 font-style: normal;
