@@ -1,5 +1,7 @@
 import sqlite3
 from flask import Flask, render_template, Response, request, redirect, session, url_for
+from tkinter import *
+from tkinter import messagebox as MessageBox
 
 app = Flask(__name__)
 
@@ -12,6 +14,7 @@ def index():
 @app.route("/register")
 def guardarnickname():
   return render_template('nickname.html')
+  
 
 @app.route("/ranking")
 def ranking():
@@ -36,13 +39,10 @@ def mostrar_juego():
   conn = sqlite3.connect('ODS.db')
   if (name != ""):
     q = f"""INSERT INTO Ranking(Nombre, Puntaje) VALUES('{name}', 0)"""
-  else:
-    pass
-  
-  conn.execute(q)
-  conn.commit()
+    conn.execute(q)
+    conn.commit()
+    return render_template('juego.html')
   conn.close()
-  return render_template('juego.html')
 
 @app.route("/game/pregunta")
 def mostrar_pregunta():

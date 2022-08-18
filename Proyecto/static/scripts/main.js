@@ -27,62 +27,9 @@ class Jugador{
 
   ganarPuntos()
 }
-
-
-function mostarPuntos25(elememento){
-  console.log(elememento)
-  elememento.outerHTML =`<img name="tablet-25" src="/static/img/+25.png"></img>`;
-  elememento.style.width = "75%";
-  elememento.style.height = "95%";
-  
-} 
-
-function volverNormal(elememento){
-  console.log(elememento)
-  elememento.outerHTML =`<img name="tablet-25" src="/static/img/tablet-apagada.png" alt="" onclick="" onmouseover="mostarPuntos25(this)">`;
-  elememento.style.width = "75%";
-  elememento.style.height = "95%";
-}*/
+*/
 
 function changePic1(imagen){
-  /*switch (imagen) {
-    case "1":
-      document.getElementById(imagen).src ="static/img/+25.png";
-      break;
-    case "2":
-      document.getElementById(imagen).src ="static/img/+25.png";
-      break;
-    case "3":
-      document.getElementById(imagen).src ="static/img/+25.png";
-      break;
-    case "4":
-      document.getElementById(imagen).src ="static/img/+25.png";
-      break;
-    case "5":
-    document.getElementById(imagen).src ="static/img/+25.png";
-      break;
-    case "6":
-      document.getElementById(imagen).src ="static/img/+50.png";
-      break;
-    case "7":
-      document.getElementById(imagen).src ="static/img/+50.png";
-      break;
-    case "8":
-      document.getElementById(imagen).src ="static/img/+50.png";
-      break;
-    case "9":
-      document.getElementById(imagen).src ="static/img/+50.png";
-      break;
-    case "10":
-      document.getElementById(imagen).src ="static/img/+50.png";
-      break;
-    case "11":
-    document.getElementById(imagen).src ="static/img/+50.png";
-      break;
-    case "12":
-      document.getElementById(imagen).src ="static/img/+50.png";
-      break;
-  }*/
 
   var imagenes = parseInt(imagen);
 
@@ -115,7 +62,11 @@ function changePic2(imagen){
 
 function ingreso(){
   var nombre_jugador = document.getElementById("nickname").value;
-  console.log(nombre_jugador);
+  if (nombre_jugador == ""){
+    alert("Debes ingresar un nickname")
+  }
+
+  var formulario = document.getElementById("form-ingreso");
 
 }
 
