@@ -72,5 +72,5 @@ function ingreso(){
 
 function cambiarTexto() {
   var texto = "Hola";
-  document.getElementsByClassName("cont-pregunta").innerHTML = texto;
+  document.getElementById("preguntilla").innerHTML = texto;
 }

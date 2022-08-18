@@ -9,8 +9,8 @@
 </head>
 <body>
    <section class="contenedor">
-        <div class="cont-pregunta" id="estilo-boton" onclick="cambiarTexto(this)">
-            <p class="pregunta">¿Gabi es GAY?</p>
+        <div class="cont-pregunta" id="estilo-boton" onclick="cambiarTexto()">
+            <p id="preguntilla" class="pregunta">¿Gabi es GAY?</p>
         </div>
         <section class="respuestas1-cont">
             <button class="cont-respuesta" id="estilo-boton">
@@ -30,5 +30,6 @@
         </section>
    </section>
     <img src="{{ url_for('static', filename='img/Windows.png') }}" alt="LOGO HP" class="hp-logo">
+    <script src="{{ url_for('static', filename='scripts/main.js')}}"></script>
 </body>
 </html>

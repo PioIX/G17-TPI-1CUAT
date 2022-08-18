@@ -1,7 +1,5 @@
 import sqlite3
 from flask import Flask, render_template, Response, request, redirect, session, url_for
-from tkinter import *
-from tkinter import messagebox as MessageBox
 
 app = Flask(__name__)
 
