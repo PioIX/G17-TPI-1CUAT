@@ -1,7 +1,7 @@
 from msilib.schema import Class
 import sqlite3
 import random
-from flask import Flask, render_template, Response, request, redirect, session, url_for
+from flask import Flask, render_template, Response, request, redirect, session, url_for, jsonify
 
 app = Flask(__name__)
 
@@ -38,6 +38,9 @@ def mostrar_juego():
   name = request.form['nombre']
   session['name'] = name
   session['puntos'] = 0
+  session['preguntas25'] = []
+  session['preguntas50'] = []
+  session['preguntas100'] = []
 
   print(name)
   conn = sqlite3.connect('ODS.db')
@@ -48,29 +51,94 @@ def mostrar_juego():
     return render_template('juego.html')
   conn.close()
 
-@app.route("/game/pregunta")
-def mostrar_pregunta():
-  hola = random.randint(1, 6)
+@app.route("/puntos", methods=['POST', 'GET'])
+def guardar_puntaje():
+  z = request.get_json()
+  print(z)
+  return render_template('juego.html')
+  
 
+@app.route("/game/pregunta")
+def mostrar_pregunta25():
+  hola = random.randint(1, 6)
+  while(hola in session['preguntas25']):
+    hola = random.randint(1, 6)
+  session['preguntas25'].append(hola)
+  
   conn = sqlite3.connect('ODS.db')
-  q = f"""SELECT Pregunta FROM Preguntas25 
+  q = f"""SELECT * FROM Preguntas25 
           WHERE id_preguntas = {hola}"""
   for row in conn.execute(q):
-    q2 = row[0]
-
-  print(hola)
-  return render_template('preguntas.html', pregunta = q2,respuesta1="Siu",respuesta2="Siuuuu")
+    q2 = row[1]
+    q3 = row[2]
+    q4 = row[3]
+    q5 = row[4]
+    q6 = row[5]
+    
+  session['respuestas'] = []
+  session['respuestas'].append(q3)
+  session['respuestas'].append(q4)
+  session['respuestas'].append(q5)
+  session['respuestas'].append(q6)
+  q7 = random.sample(session['respuestas'], len(session['respuestas']))  
+  return render_template('preguntas.html', pregunta = q2, respuesta1=q7[0], respuesta2=q7[1], respuesta3=q7[2], respuesta4=q7[3])
   conn.close()
 
-#def mostrar_pregunta50():
-#  conn = sqlite3.connect('ODS.db')
-#  x = f"""SELECT * FROM Preguntas50"""
-#  return render_template('preguntas.html', pregunta = "HIOLA?",respuesta1="Siu",respuesta2="Siuuuu")
+@app.route("/game/pregunta")
+def mostrar_pregunta50():
+  hola = random.randint(1, 6)
+  while(hola in session['preguntas50']):
+    hola = random.randint(1, 6)
+  session['preguntas50'].append(hola)
+  
+  conn = sqlite3.connect('ODS.db')
+  q = f"""SELECT * FROM Preguntas50 
+          WHERE id_preguntas = {hola}"""
+  for row in conn.execute(q):
+    q2 = row[1]
+    q3 = row[2]
+    q4 = row[3]
+    q5 = row[4]
+    q6 = row[5]
 
-#def mostrar_pregunta100():
-#  conn = sqlite3.connect('ODS.db')
-#  v = f"""SELECT * FROM Preguntas100"""
-#  return render_template('preguntas.html', pregunta = "HIOLA?",respuesta1="Siu",respuesta2="Siuuuu")
+  session['respuestas'] = []
+  session['respuestas'].append(q3)
+  session['respuestas'].append(q4)
+  session['respuestas'].append(q5)
+  session['respuestas'].append(q6)
+  q7 = random.sample(session['respuestas'], len(session['respuestas']))  
+  print(hola)
+  return render_template('preguntas.html', pregunta = q2, respuesta1=q7[0], respuesta2=q7[1], respuesta3=q7[2], respuesta4=q7[3])
+  conn.close()
+
+@app.route("/game/pregunta")
+def mostrar_pregunta100():
+  hola = random.randint(1, 6)
+  while(hola in session['preguntas100']):
+    hola = random.randint(1, 6)
+  session['preguntas100'].append(hola)
+  
+  conn = sqlite3.connect('ODS.db')
+  q = f"""SELECT * FROM Preguntas100 
+          WHERE id_preguntas = {hola}"""
+  for row in conn.execute(q):
+    q2 = row[1]
+    q3 = row[2]
+    q4 = row[3]
+    q5 = row[4]
+    q6 = row[5]
+
+  session['respuestas'] = []
+  session['respuestas'].append(q3)
+  session['respuestas'].append(q4)
+  session['respuestas'].append(q5)
+  session['respuestas'].append(q6)
+  q7 = random.sample(session['respuestas'], len(session['respuestas']))  
+  
+  
+  print(session['respuestas'])
+  return render_template('preguntas.html', pregunta = q2, respuesta1=q7[0], respuesta2=q7[1], respuesta3=q7[2], respuesta4=q7[3])
+  conn.close()
 
 @app.route("/game/final")
 def mostrar_final():

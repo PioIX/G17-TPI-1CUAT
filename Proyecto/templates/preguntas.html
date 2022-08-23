@@ -13,7 +13,7 @@
             <p id="preguntilla" class="pregunta">{{pregunta}}</p>
         </div>
         <section class="respuestas1-cont">
-            <button class="cont-respuesta" id="estilo-boton">
+            <button class="cont-respuesta" id="estilo-boton" value="{{respuesta1}}" onclick="enviarRespuesta(this)">
                 <p class="respuesta">{{respuesta1}}</p>
             </button>
             <button class="cont-respuesta" id="estilo-boton">
@@ -22,14 +22,16 @@
         </section>
         <section class="respuestas2-cont">
             <button class="cont-respuesta" id="estilo-boton">
-                <p class="respuesta">Normal</p>
+                <p class="respuesta">{{respuesta3}}</p>
             </button>
             <button class="cont-respuesta" id="estilo-boton">
-                <p class="respuesta">Ninguna de las anteriores</p>
+                <p class="respuesta">{{respuesta4}}</p>
             </button>
         </section>
    </section>
+   <form action="/game" id="id" method="post"></form>
     <img src="{{ url_for('static', filename='img/Windows.png') }}" alt="LOGO HP" class="hp-logo">
     <script src="{{ url_for('static', filename='scripts/main.js')}}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>

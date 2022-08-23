@@ -74,3 +74,16 @@ function cambiarTexto() {
   var texto = "Hola";
   document.getElementById("preguntilla").innerHTML = texto;
 }
+
+function enviarRespuesta(boton) {
+  console.log(boton)
+  console.log(boton.value)
+  $.ajax({
+    url:"/puntos",
+    type:"POST",
+    data: {"value":boton.value},
+    success: function(response){
+      document.getElementById("id").submit();
+    },
+    }); 
+}
