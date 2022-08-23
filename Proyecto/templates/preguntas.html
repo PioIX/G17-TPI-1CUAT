@@ -9,15 +9,15 @@
 </head>
 <body>
    <section class="contenedor">
-        <div class="cont-pregunta" id="estilo-boton" onclick="cambiarTexto()">
-            <p id="preguntilla" class="pregunta">¿Gabi es GAY?</p>
+        <div class="cont-pregunta" id="estilo-boton" onload="cambiarTexto()">
+            <p id="preguntilla" class="pregunta">{{pregunta}}</p>
         </div>
         <section class="respuestas1-cont">
             <button class="cont-respuesta" id="estilo-boton">
-                <p class="respuesta">Muy</p>
+                <p class="respuesta">{{respuesta1}}</p>
             </button>
             <button class="cont-respuesta" id="estilo-boton">
-                <p class="respuesta">Un Poco</p>
+                <p class="respuesta">{{respuesta2}}</p>
             </button>
         </section>
         <section class="respuestas2-cont">
