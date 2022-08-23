@@ -19,13 +19,25 @@ Laptop1 = new Laptop(1, 25);
 Laptop7 = new Laptop(7, 50)
 Laptop13 = new Laptop(13, 100) 
 
+
+
+var listaJugadores = [];
+
 class Jugador{
   constructor(nickname){
     this.nickname = nickname;
-    this.puntos = [];
+    this.puntos = 0;
+    
   }
+}
 
-  ganarPuntos()
+function asignarNickname(){
+  var nombre_jugador = document.getElementById("nickname").value;
+
+  if (nombre_jugador != ""){
+    Jugador1 = new Jugador(nombre_jugador);
+    listaJugadores.push(Jugador1);
+  }
 }
 */
 
@@ -56,18 +68,6 @@ function changePic2(imagen){
     document.getElementById(imagen).src ="static/img/tablet-apagada.png";
   }
   
-}
-
-
-
-function ingreso(){
-  var nombre_jugador = document.getElementById("nickname").value;
-  if (nombre_jugador == ""){
-    alert("Debes ingresar un nickname")
-  }
-
-  var formulario = document.getElementById("form-ingreso");
-
 }
 
 function cambiarTexto() {
