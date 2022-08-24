@@ -14,6 +14,14 @@
         <li style="margin-bottom: 20px;">{{ linea }}</li>
         {% endfor %}
     </ol>
+    <footer class="pie-de-pagina">
+        <div class="inicio">
+            <img src="{{ url_for('static', filename = 'img/casa-inicio.jpg')}}" alt="" onclick="window.location.href='{{ url_for('index')}}';">
+        </div>
+        <div class="ayuda">
+            <img src="{{ url_for('static', filename = 'img/ayuda.jpg')}}" alt="" onclick="window.location.href='{{ url_for('informacion')}}';">
+        </div>
+    </footer>
     <div class="sidePanel">
     <div class="pixelCon">
       <div class="pixel"></div>

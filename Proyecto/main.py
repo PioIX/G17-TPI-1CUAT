@@ -81,7 +81,6 @@ def guardar_puntaje():
   
   print(session['puntos'])
   return render_template('juego.html')
-  
 
 @app.route("/game/pregunta/<nivel>")
 def mostrar_pregunta(nivel):
