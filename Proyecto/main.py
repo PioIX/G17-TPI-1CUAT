@@ -10,6 +10,9 @@ app.secret_key = "hjdfbhasdasdjkashdkasd"
 
 @app.route("/")
 def index():
+  if 'preguntas' in session:
+    preguntas = session['preguntas']
+    print(preguntas)
   return render_template('index.html')
 
 @app.route("/register")
@@ -35,7 +38,6 @@ def informacion():
 
 @app.route("/game", methods=['POST', 'GET'])
 def mostrar_juego():
-  session['preguntas'] = []
   if request.method == 'POST':
     name = request.form['nombre']
     session['name'] = name
@@ -85,9 +87,6 @@ def guardar_puntaje():
 
 @app.route("/game/pregunta/<nivel>")
 def mostrar_pregunta(nivel):
-  
-  print(nivel)
-
   if nivel == "25":
     numRandomPregunta = random.randint(1, 6)
     while(numRandomPregunta in session['preguntas']):
