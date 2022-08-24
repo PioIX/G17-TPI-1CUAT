@@ -4,19 +4,21 @@ import sqlite3
 import random
 from flask import Flask, render_template, Response, request, redirect, session, url_for, jsonify
 
+
 app = Flask(__name__)
 
 app.secret_key = "hjdfbhasdasdjkashdkasd"
 
 @app.route("/")
 def index():
-  #if 'preguntas' in session:
-    #preguntas = session['preguntas']
-    #print(preguntas)
+  if 'preguntas' in session:
+    preguntas = session['preguntas']
+    print(preguntas)
   return render_template('index.html')
 
 @app.route("/register")
 def guardarnickname():
+  session['preguntas'] = []
   return render_template('nickname.html')
   
 
@@ -150,6 +152,7 @@ def mostrar_final():
   conn.execute(q)
   print(nicknameParaSumarPuntos)
   conn.commit()
+  session.pop('preguntas', None)
   conn.close()
   return render_template('fin-juego.html', puntosFinales = session['puntos'])
 
