@@ -52,7 +52,6 @@ def mostrar_juego():
       conn.commit()
     conn.close()
   return render_template('juego.html', puntosFinales = session['puntos'])
-  
 
 @app.route("/puntos", methods=['POST', 'GET'])
 def guardar_puntaje():
