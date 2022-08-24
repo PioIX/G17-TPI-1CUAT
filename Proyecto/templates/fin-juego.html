@@ -14,16 +14,16 @@
                 PUNTOS
             </div>
             <div class="puntos">
-                XXXX
+                {{puntosFinales}}
             </div>
         </div>
     </section>
     <section class="segundo-contenedor">
         <div class="contenedor-botones">
-            <button class="boton-inicio" id="estilo-boton">
+            <button class="boton-inicio" id="estilo-boton" onclick="window.location.href='{{ url_for('index')}}';">
                 INICIO
             </button>
-            <button class="boton-ranking" id="estilo-boton">
+            <button class="boton-ranking" id="estilo-boton" onclick="window.location.href='{{ url_for('ranking')}}';">
                 RANKING
             </button>
         </div>

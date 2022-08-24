@@ -19,7 +19,6 @@ def guardarnickname():
 
 @app.route("/ranking")
 def ranking():
-  
   conn = sqlite3.connect('ODS.db')
 
   q = f"""SELECT * from Ranking
@@ -36,6 +35,7 @@ def informacion():
 
 @app.route("/game", methods=['POST', 'GET'])
 def mostrar_juego():
+  session['preguntas'] = []
   if request.method == 'POST':
     name = request.form['nombre']
     session['name'] = name
@@ -50,7 +50,7 @@ def mostrar_juego():
       conn.execute(q)
       conn.commit()
     conn.close()
-  return render_template('juego.html')
+  return render_template('juego.html', puntosFinales = session['puntos'])
   
 
 @app.route("/puntos", methods=['POST', 'GET'])
@@ -85,29 +85,35 @@ def guardar_puntaje():
 
 @app.route("/game/pregunta/<nivel>")
 def mostrar_pregunta(nivel):
-  session['preguntas'] = []
+  
   print(nivel)
 
   if nivel == "25":
     numRandomPregunta = random.randint(1, 6)
     while(numRandomPregunta in session['preguntas']):
       numRandomPregunta = random.randint(1, 6)
-    session['preguntas'].append(numRandomPregunta)
+    #session['preguntas'].append(numRandomPregunta)
+    print(session['preguntas'])
     print(numRandomPregunta)
   
   if nivel == "50":
     numRandomPregunta = random.randint(7, 12)
     while(numRandomPregunta in session['preguntas']):
       numRandomPregunta = random.randint(7, 12)
-    session['preguntas'].append(numRandomPregunta)
+    #session['preguntas'].append(numRandomPregunta)
+    print(session['preguntas'])
     print(numRandomPregunta)
   
   if nivel == "100":
     numRandomPregunta = random.randint(13, 18)
     while(numRandomPregunta in session['preguntas']):
       numRandomPregunta = random.randint(13, 18)
-    session['preguntas'].append(numRandomPregunta)
+    #session['preguntas'].append(numRandomPregunta)
+    print(session['preguntas'])
     print(numRandomPregunta)
+  
+  session['preguntas'].append(numRandomPregunta)
+  print(session['preguntas'])
 
   conn = sqlite3.connect('ODS.db')
   q = f"""SELECT * FROM Preguntas 
@@ -137,6 +143,15 @@ def mostrar_pregunta(nivel):
 
 @app.route("/game/final")
 def mostrar_final():
-  return render_template('fin-juego.html')
+  conn = sqlite3.connect('ODS.db')
+  nicknameParaSumarPuntos = '"' + session['name'] + '"'
+  q = f"""UPDATE Ranking
+          SET Puntaje = {session['puntos']}
+          WHERE Nombre = {nicknameParaSumarPuntos}"""
+  conn.execute(q)
+  print(nicknameParaSumarPuntos)
+  conn.commit()
+  conn.close()
+  return render_template('fin-juego.html', puntosFinales = session['puntos'])
 
 app.run(host='0.0.0.0', port=5000)
