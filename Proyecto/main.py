@@ -60,68 +60,79 @@ def guardar_puntaje():
         search_term = request.form
         search = search_term["value"]
         print(search)
+        
         q = f"""SELECT RtaCorrecta FROM Preguntas25"""
+        q2 = f"""SELECT RtaCorrecta FROM Preguntas50"""
+        q3 = f"""SELECT RtaCorrecta FROM Preguntas100"""
+        
         lista = [x[0] for x in conn.execute(q).fetchall()]
-        print(lista)
+        lista2 = [x2[0] for x2 in conn.execute(q2).fetchall()]
+        lista3 = [x3[0] for x3 in conn.execute(q3).fetchall()]
+        
         if search in lista:
-          pass
+          session['puntos'] = session['puntos'] + 25
+          print("se sumaron 25")
+        elif search in lista2:
+          session['puntos']= session['puntos'] + 50
+          print("se sumaron 50")
+        elif search in lista3:
+          session['puntos'] = session['puntos'] + 100
+          print("se sumaron 100")
+  
+  print(session['puntos'])
   return render_template('juego.html')
   
 
 @app.route("/game/pregunta/<nivel>")
 def mostrar_pregunta(nivel):
-  hola = random.randint(1, 6)
-  while(hola in session['preguntas']):
-    hola = random.randint(1, 6)
-  session['preguntas50'].append(hola)
+  session['preguntas'] = []
+  print(nivel)
+
+  if nivel == "25":
+    numRandomPregunta = random.randint(1, 6)
+    while(numRandomPregunta in session['preguntas']):
+      numRandomPregunta = random.randint(1, 6)
+    session['preguntas'].append(numRandomPregunta)
+    print(numRandomPregunta)
   
+  if nivel == "50":
+    numRandomPregunta = random.randint(7, 12)
+    while(numRandomPregunta in session['preguntas']):
+      numRandomPregunta = random.randint(7, 12)
+    session['preguntas'].append(numRandomPregunta)
+    print(numRandomPregunta)
+  
+  if nivel == "100":
+    numRandomPregunta = random.randint(13, 18)
+    while(numRandomPregunta in session['preguntas']):
+      numRandomPregunta = random.randint(13, 18)
+    session['preguntas'].append(numRandomPregunta)
+    print(numRandomPregunta)
+
   conn = sqlite3.connect('ODS.db')
   q = f"""SELECT * FROM Preguntas 
-          WHERE id_preguntas = {hola} and nivel = {nivel}"""
+          WHERE id_preguntas = {numRandomPregunta}"""
+  print(conn.execute(q).fetchall())
   for row in conn.execute(q):
-    q2 = row[1]
-    q3 = row[2]
-    q4 = row[3]
-    q5 = row[4]
-    q6 = row[5]
-
-  session['respuestas'] = []
-  session['respuestas'].append(q3)
-  session['respuestas'].append(q4)
-  session['respuestas'].append(q5)
-  session['respuestas'].append(q6)
-  q7 = random.sample(session['respuestas2'], len(session['respuestas2']))  
-  print(hola)
-  return render_template('preguntas.html', pregunta = q2, respuesta1=q7[0], respuesta2=q7[1], respuesta3=q7[2], respuesta4=q7[3])
-  conn.close()
-
-@app.route("/game/pregunta")
-def mostrar_pregunta100():
-  hola = random.randint(1, 6)
-  while(hola in session['preguntas100']):
-    hola = random.randint(1, 6)
-  session['preguntas100'].append(hola)
+    pregunta1 = row[1]
+    print(pregunta1)
+    rta1 = row[2]
+    print(rta1)
+    rta2 = row[3]
+    print(rta2)
+    rta3 = row[4]
+    print(rta3)
+    rta4 = row[5]
+    print(rta4)
   
-  conn = sqlite3.connect('ODS.db')
-  q = f"""SELECT * FROM Preguntas100 
-          WHERE id_preguntas = {hola}"""
-  for row in conn.execute(q):
-    q2 = row[1]
-    q3 = row[2]
-    q4 = row[3]
-    q5 = row[4]
-    q6 = row[5]
+  session['shuffleRtas'] = []
+  session['shuffleRtas'].append(rta1)
+  session['shuffleRtas'].append(rta2)
+  session['shuffleRtas'].append(rta3)
+  session['shuffleRtas'].append(rta4)
+  respuestasMezcladas = random.sample(session['shuffleRtas'], len(session['shuffleRtas']))
 
-  session['respuestas3'] = []
-  session['respuestas3'].append(q3)
-  session['respuestas3'].append(q4)
-  session['respuestas3'].append(q5)
-  session['respuestas3'].append(q6)
-  q7 = random.sample(session['respuestas3'], len(session['respuestas3']))  
-  
-  
-  print(session['respuestas3'])
-  return render_template('preguntas.html', pregunta = q2, respuesta1=q7[0], respuesta2=q7[1], respuesta3=q7[2], respuesta4=q7[3])
+  return render_template('preguntas.html', pregunta = pregunta1, respuesta1=respuestasMezcladas[0], respuesta2=respuestasMezcladas[1], respuesta3=respuestasMezcladas[2], respuesta4=respuestasMezcladas[3])
   conn.close()
 
 @app.route("/game/final")
