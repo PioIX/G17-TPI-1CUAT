@@ -10,9 +10,9 @@ app.secret_key = "hjdfbhasdasdjkashdkasd"
 
 @app.route("/")
 def index():
-  if 'preguntas' in session:
-    preguntas = session['preguntas']
-    print(preguntas)
+  #if 'preguntas' in session:
+    #preguntas = session['preguntas']
+    #print(preguntas)
   return render_template('index.html')
 
 @app.route("/register")
