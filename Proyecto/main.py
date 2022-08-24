@@ -101,12 +101,12 @@ def mostrar_pregunta50():
     q5 = row[4]
     q6 = row[5]
 
-  session['respuestas'] = []
-  session['respuestas'].append(q3)
-  session['respuestas'].append(q4)
-  session['respuestas'].append(q5)
-  session['respuestas'].append(q6)
-  q7 = random.sample(session['respuestas'], len(session['respuestas']))  
+  session['respuestas2'] = []
+  session['respuestas2'].append(q3)
+  session['respuestas2'].append(q4)
+  session['respuestas2'].append(q5)
+  session['respuestas2'].append(q6)
+  q7 = random.sample(session['respuestas2'], len(session['respuestas2']))  
   print(hola)
   return render_template('preguntas.html', pregunta = q2, respuesta1=q7[0], respuesta2=q7[1], respuesta3=q7[2], respuesta4=q7[3])
   conn.close()
@@ -128,15 +128,15 @@ def mostrar_pregunta100():
     q5 = row[4]
     q6 = row[5]
 
-  session['respuestas'] = []
-  session['respuestas'].append(q3)
-  session['respuestas'].append(q4)
-  session['respuestas'].append(q5)
-  session['respuestas'].append(q6)
-  q7 = random.sample(session['respuestas'], len(session['respuestas']))  
+  session['respuestas3'] = []
+  session['respuestas3'].append(q3)
+  session['respuestas3'].append(q4)
+  session['respuestas3'].append(q5)
+  session['respuestas3'].append(q6)
+  q7 = random.sample(session['respuestas3'], len(session['respuestas3']))  
   
   
-  print(session['respuestas'])
+  print(session['respuestas3'])
   return render_template('preguntas.html', pregunta = q2, respuesta1=q7[0], respuesta2=q7[1], respuesta3=q7[2], respuesta4=q7[3])
   conn.close()
 

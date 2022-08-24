@@ -90,12 +90,12 @@ body{
 
 .pregunta{
     width: 100%;
-    font-size: 50px;
+    font-size: 3.5em;
     text-align: center;
 }
 
 .respuesta{
     width: 100%;
-    font-size: 50px;
+    font-size: 3.5em;
     text-align: center;
 }
