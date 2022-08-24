@@ -40,9 +40,6 @@ def mostrar_juego():
     name = request.form['nombre']
     session['name'] = name
     session['puntos'] = 0
-    session['preguntas25'] = []
-    session['preguntas50'] = []
-    session['preguntas100'] = []
     
     print(name)
     
@@ -67,8 +64,7 @@ def guardar_puntaje():
         lista = [x[0] for x in conn.execute(q).fetchall()]
         print(lista)
         if search in lista:
-          print("50")
-   
+          pass
   return render_template('juego.html')
   
 
