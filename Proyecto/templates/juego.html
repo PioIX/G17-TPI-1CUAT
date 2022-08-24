@@ -31,7 +31,7 @@
     <section class="contenedor-laptops">
         <div class="primer-contenedor" >
             <div class="container" id="estilo-laptops">
-                <img id="1" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta25')}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">
+                <img id="1" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=25)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">
             </div>
             <div class="container" id="estilo-laptops">
                 <img id="2" name="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta25')}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">

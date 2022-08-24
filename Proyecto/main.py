@@ -1,3 +1,4 @@
+from imp import reload
 from msilib.schema import Class
 import sqlite3
 import random
@@ -35,77 +36,64 @@ def informacion():
 
 @app.route("/game", methods=['POST', 'GET'])
 def mostrar_juego():
-  name = request.form['nombre']
-  session['name'] = name
-  session['puntos'] = 0
-  session['preguntas25'] = []
-  session['preguntas50'] = []
-  session['preguntas100'] = []
+  if request.method == 'POST':
+    name = request.form['nombre']
+    session['name'] = name
+    session['puntos'] = 0
+    session['preguntas25'] = []
+    session['preguntas50'] = []
+    session['preguntas100'] = []
+    
+    print(name)
+    
+    conn = sqlite3.connect('ODS.db')
 
-  print(name)
-  conn = sqlite3.connect('ODS.db')
-  if (name != ""):
-    q = f"""INSERT INTO Ranking(Nombre, Puntaje) VALUES('{name}', 0)"""
-    conn.execute(q)
-    conn.commit()
-    return render_template('juego.html')
-  conn.close()
-
-@app.route("/puntos", methods=['POST', 'GET'])
-def guardar_puntaje():
-  z = request.get_json()
-  print(z)
+    if (name != ""):
+      q = f"""INSERT INTO Ranking(Nombre, Puntaje) VALUES('{name}', 0)"""
+      conn.execute(q)
+      conn.commit()
+    conn.close()
   return render_template('juego.html')
   
 
-@app.route("/game/pregunta")
-def mostrar_pregunta25():
+@app.route("/puntos", methods=['POST', 'GET'])
+def guardar_puntaje():
+  conn = sqlite3.connect('ODS.db')
+  if request.method == "POST":
+        search_term = request.form
+        search = search_term["value"]
+        print(search)
+        q = f"""SELECT RtaCorrecta FROM Preguntas25"""
+        lista = [x[0] for x in conn.execute(q).fetchall()]
+        print(lista)
+        if search in lista:
+          print("50")
+   
+  return render_template('juego.html')
+  
+
+@app.route("/game/pregunta/<nivel>")
+def mostrar_pregunta(nivel):
   hola = random.randint(1, 6)
-  while(hola in session['preguntas25']):
+  while(hola in session['preguntas']):
     hola = random.randint(1, 6)
-  session['preguntas25'].append(hola)
+  session['preguntas50'].append(hola)
   
   conn = sqlite3.connect('ODS.db')
-  q = f"""SELECT * FROM Preguntas25 
-          WHERE id_preguntas = {hola}"""
+  q = f"""SELECT * FROM Preguntas 
+          WHERE id_preguntas = {hola} and nivel = {nivel}"""
   for row in conn.execute(q):
     q2 = row[1]
     q3 = row[2]
     q4 = row[3]
     q5 = row[4]
     q6 = row[5]
-    
+
   session['respuestas'] = []
   session['respuestas'].append(q3)
   session['respuestas'].append(q4)
   session['respuestas'].append(q5)
   session['respuestas'].append(q6)
-  q7 = random.sample(session['respuestas'], len(session['respuestas']))  
-  return render_template('preguntas.html', pregunta = q2, respuesta1=q7[0], respuesta2=q7[1], respuesta3=q7[2], respuesta4=q7[3])
-  conn.close()
-
-@app.route("/game/pregunta")
-def mostrar_pregunta50():
-  hola = random.randint(1, 6)
-  while(hola in session['preguntas50']):
-    hola = random.randint(1, 6)
-  session['preguntas50'].append(hola)
-  
-  conn = sqlite3.connect('ODS.db')
-  q = f"""SELECT * FROM Preguntas50 
-          WHERE id_preguntas = {hola}"""
-  for row in conn.execute(q):
-    q2 = row[1]
-    q3 = row[2]
-    q4 = row[3]
-    q5 = row[4]
-    q6 = row[5]
-
-  session['respuestas2'] = []
-  session['respuestas2'].append(q3)
-  session['respuestas2'].append(q4)
-  session['respuestas2'].append(q5)
-  session['respuestas2'].append(q6)
   q7 = random.sample(session['respuestas2'], len(session['respuestas2']))  
   print(hola)
   return render_template('preguntas.html', pregunta = q2, respuesta1=q7[0], respuesta2=q7[1], respuesta3=q7[2], respuesta4=q7[3])
@@ -144,4 +132,4 @@ def mostrar_pregunta100():
 def mostrar_final():
   return render_template('fin-juego.html')
 
-app.run(host='0.0.0.0', port=81)
+app.run(host='0.0.0.0', port=5000)

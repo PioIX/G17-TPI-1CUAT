@@ -83,7 +83,8 @@ function enviarRespuesta(boton) {
     type:"POST",
     data: {"value":boton.value},
     success: function(response){
-      document.getElementById("id").submit();
+      //document.getElementById("id").submit();
+      window.location = '/game';
     },
     }); 
 }
