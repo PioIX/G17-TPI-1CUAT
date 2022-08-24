@@ -21,18 +21,15 @@ def guardarnickname():
   session['preguntas'] = []
   return render_template('nickname.html')
   
-
 @app.route("/ranking")
 def ranking():
   conn = sqlite3.connect('ODS.db')
-
   q = f"""SELECT * from Ranking
           ORDER BY Puntaje DESC
           LIMIT 10"""
   x = conn.execute(q)
-  conn.close()
   return render_template('ranking.html', lineamostrar = x)
-  
+  conn.close()
 
 @app.route("/ayuda")
 def informacion():
