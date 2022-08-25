@@ -34,7 +34,15 @@
             {% if '1' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}>
-                <img id="1" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=25, id=1)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">
+                <img id="1"  alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=25, id=1)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '1' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+25_verde.png')}}"
+                {% elif '1' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+25_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}
+                >
             </div>
             <div class="container" id="estilo-laptops"
             {% if '2' in lista_desact %}

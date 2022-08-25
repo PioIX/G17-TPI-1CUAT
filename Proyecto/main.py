@@ -21,6 +21,8 @@ def guardarnickname():
   session['preguntas'] = []
   session['idLaptops'] = []
   session['preguntasCompletas'] = 0
+  session['lista_correctas'] = []
+  session['lista_incorrecta'] = []
   #session['laptopsCorrectas'] = False
   return render_template('nickname.html')
   
@@ -78,22 +80,27 @@ def guardar_puntaje():
         
         if search in lista:
           session['puntos'] = session['puntos'] + 25
-          #session['laptopsCorrectas'] = True
+          session['lista_correctas'].append(session['id'])
           print("se sumaron 25")
         elif search in lista2:
           session['puntos']= session['puntos'] + 50
-          #session['laptopsCorrectas'] = True
+          session['lista_correctas'].append(session['id'])
           print("se sumaron 50")
         elif search in lista3:
           session['puntos'] = session['puntos'] + 100
-          #session['laptopsCorrectas'] = True
+          session['lista_correctas'].append(session['id'])
           print("se sumaron 100")
+        else:
+          session['lista_incorrecta'].append(session['id'])
   
   print(session['puntos'])
+  print(session['lista_incorrecta'])
+  print(session['lista_correctas'])
   return render_template('juego.html')
 
 @app.route("/game/pregunta/<nivel>/<id>")
 def mostrar_pregunta(nivel, id):
+    session['id'] = id
     session['idLaptops'].append(id)
     session['preguntasCompletas'] += 1
     print(session['preguntasCompletas'])
