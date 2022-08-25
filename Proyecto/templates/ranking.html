@@ -34,11 +34,18 @@
             <p>NICKNAME</p>
             <p>PUNTOS</p>
         </div>
+        {% for i in range(10) %}
         <div id="casilla">
-            <p>1</p>
-            <p>Felipe</p>
-            <p>200</p>
+
+            <div class="div-1">{{i+1}}</div>
+            <div>{{ lineamostrar[i][0] }}</div>
+            <div class="div-2">{{ lineamostrar[i][1] }}</div>
+
         </div>
+        {% endfor %}
+     
+     
+
     </section>
 
     <footer class="pie-de-pagina">
@@ -59,3 +66,4 @@
         <li id="modulo-ranking" style="margin-bottom: 20px;">{{ linea[0] }}</li>
     {% endfor %}
 </ol> -->
+
