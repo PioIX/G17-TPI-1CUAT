@@ -8,12 +8,39 @@
     <link href="{{ url_for('static', filename='styles/ranking_style.css') }}" rel="stylesheet">
 </head>
 <body>
-    <ol class="ranking">
-        <H1>TOP 10:</H1>
-        {% for linea in lineamostrar %}
-        <li style="margin-bottom: 20px;">{{ linea }}</li>
-        {% endfor %}
-    </ol>
+    <section class="contenedor">
+        <div class="header">
+            <div class="contenedor-chico">
+                <div class="imagen">
+                    <img src="{{ url_for('static', filename = 'img/LOGO.png')}}" alt="" >
+                </div>
+                <div class="linea">
+
+                </div>
+                <div class="puntaje">
+                    <div class="texto">
+                        RANKING
+                    </div>
+                    <div class="puntajes">
+                        MUNDIAL
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contencion">
+        <div id="textos">
+            <p>TOP</p>
+            <p>NICKNAME</p>
+            <p>PUNTOS</p>
+        </div>
+        <div id="casilla">
+            <p>1</p>
+            <p>Felipe</p>
+            <p>200</p>
+        </div>
+    </section>
+
     <footer class="pie-de-pagina">
         <div class="inicio">
             <img src="{{ url_for('static', filename = 'img/casa-inicio.jpg')}}" alt="" onclick="window.location.href='{{ url_for('index')}}';">
@@ -22,86 +49,13 @@
             <img src="{{ url_for('static', filename = 'img/ayuda.jpg')}}" alt="" onclick="window.location.href='{{ url_for('informacion')}}';">
         </div>
     </footer>
-    <div class="sidePanel">
-    <div class="pixelCon">
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-      <div class="pixel"></div>
-    </div>
-    </div>
+    
     <script src="{{ url_for('static', filename='scripts/main.js')}}"></script>
 </body>
 </html>
+
+<!-- <ol class="ranking" style="list-style-type: none;">
+    {% for linea in lineamostrar %}
+        <li id="modulo-ranking" style="margin-bottom: 20px;">{{ linea[0] }}</li>
+    {% endfor %}
+</ol> -->
