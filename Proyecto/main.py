@@ -1,3 +1,4 @@
+from asyncio import windows_events
 from msilib.schema import Class
 import sqlite3
 import random
@@ -19,7 +20,7 @@ def index():
 def guardarnickname():
   session['preguntas'] = []
   session['idLaptops'] = []
-  session['preguntasCompletas'] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+  session['preguntasCompletas'] = 0
   #session['laptopsCorrectas'] = False
   return render_template('nickname.html')
   
@@ -39,22 +40,24 @@ def informacion():
 
 @app.route("/game", methods=['POST', 'GET'])
 def mostrar_juego():
+  if session['preguntasCompletas'] < 18:
+    if request.method == 'POST':
+      name = request.form['nombre']
+      session['name'] = name
+      session['puntos'] = 0
+      
+      print(name)
+      
+      conn = sqlite3.connect('ODS.db')
 
-  if request.method == 'POST':
-    name = request.form['nombre']
-    session['name'] = name
-    session['puntos'] = 0
-    
-    print(name)
-    
-    conn = sqlite3.connect('ODS.db')
-
-    if (name != ""):
-      q = f"""INSERT INTO Ranking(Nombre, Puntaje) VALUES('{name}', 0)"""
-      conn.execute(q)
-      conn.commit()
-    conn.close()
-  return render_template('juego.html', puntosFinales = session['puntos'], lista_desact = session['idLaptops'])
+      if (name != ""):
+        q = f"""INSERT INTO Ranking(Nombre, Puntaje) VALUES('{name}', 0)"""
+        conn.execute(q)
+        conn.commit()
+      conn.close()
+    return render_template('juego.html', puntosFinales = session['puntos'], lista_desact = session['idLaptops'])
+  else:
+    return redirect("/game/final")
 
 
 @app.route("/puntos", methods=['POST', 'GET'])
@@ -91,8 +94,10 @@ def guardar_puntaje():
 
 @app.route("/game/pregunta/<nivel>/<id>")
 def mostrar_pregunta(nivel, id):
-  if session['preguntas'] != session['preguntasCompletas']:
     session['idLaptops'].append(id)
+    session['preguntasCompletas'] += 1
+    print(session['preguntasCompletas'])
+    print(session['preguntasCompletas'] < 17)
 
     if nivel == "25":
       numRandomPregunta = random.randint(1, 6)
@@ -144,9 +149,11 @@ def mostrar_pregunta(nivel, id):
     session['shuffleRtas'].append(rta3)
     session['shuffleRtas'].append(rta4)
     respuestasMezcladas = random.sample(session['shuffleRtas'], len(session['shuffleRtas']))
-  
+    
     return render_template('preguntas.html', pregunta = pregunta1, respuesta1=respuestasMezcladas[0], respuesta2=respuestasMezcladas[1], respuesta3=respuestasMezcladas[2], respuesta4=respuestasMezcladas[3])
     conn.close()
+
+    
 
 
 @app.route("/game/final")
