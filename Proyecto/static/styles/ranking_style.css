@@ -95,27 +95,47 @@ body{
     width: 40%;
     height: auto;
     margin: auto;
-    background-color: red;
+    
 }
 
 #textos{
     display: flex;
     justify-content: space-around;
-    background-color: blue;
     font-size: 2em;
+    font-family: 'Adventure-Subtitles';
+    color: var(--blanquito);
+
 }
 
 #casilla{
     display: flex;
-    width: 40%;
+    width: 100%;
+    height: 50px;
     margin: auto;
     flex-direction: row;
-    justify-content: space-around;
-    gap: 30PX;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10PX;
+    background-color: var(--violeta);
+    margin-top: 10px;
+    border-radius: 2em;
+    font-size: 1.5em;
+    font-family: 'Adventure-Subtitles';
+    color: var(--gris-medio-claro);
+
 }
 .ranking{
     text-align: center;
 }
+
+.div-1{
+    margin-left: 65px;
+}
+
+.div-2{
+    margin-right: 70px;
+}
+
 
 .pie-de-pagina{
     width: 100%;

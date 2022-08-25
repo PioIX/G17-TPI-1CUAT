@@ -33,7 +33,9 @@ def ranking():
           ORDER BY Puntaje DESC
           LIMIT 10"""
   x = conn.execute(q)
-  return render_template('ranking.html', lineamostrar = x)
+  lista = x.fetchall() 
+  print(lista)
+  return render_template('ranking.html', lineamostrar = lista)
   conn.close()
 
 @app.route("/ayuda")
