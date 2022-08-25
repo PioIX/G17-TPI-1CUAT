@@ -19,7 +19,8 @@ def index():
 def guardarnickname():
   session['preguntas'] = []
   session['idLaptops'] = []
-  session['laptopsCorrectas'] = False
+  session['preguntasCompletas'] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+  #session['laptopsCorrectas'] = False
   return render_template('nickname.html')
   
 @app.route("/ranking")
@@ -74,15 +75,15 @@ def guardar_puntaje():
         
         if search in lista:
           session['puntos'] = session['puntos'] + 25
-          session['laptopsCorrectas'] = True
+          #session['laptopsCorrectas'] = True
           print("se sumaron 25")
         elif search in lista2:
           session['puntos']= session['puntos'] + 50
-          session['laptopsCorrectas'] = True
+          #session['laptopsCorrectas'] = True
           print("se sumaron 50")
         elif search in lista3:
           session['puntos'] = session['puntos'] + 100
-          session['laptopsCorrectas'] = True
+          #session['laptopsCorrectas'] = True
           print("se sumaron 100")
   
   print(session['puntos'])
@@ -90,61 +91,63 @@ def guardar_puntaje():
 
 @app.route("/game/pregunta/<nivel>/<id>")
 def mostrar_pregunta(nivel, id):
-  session['idLaptops'].append(id)
+  if session['preguntas'] != session['preguntasCompletas']:
+    session['idLaptops'].append(id)
 
-  if nivel == "25":
-    numRandomPregunta = random.randint(1, 6)
-    while(numRandomPregunta in session['preguntas']):
+    if nivel == "25":
       numRandomPregunta = random.randint(1, 6)
-    #session['preguntas'].append(numRandomPregunta)
-    print(session['preguntas'])
-    print(numRandomPregunta)
-  
-  if nivel == "50":
-    numRandomPregunta = random.randint(7, 12)
-    while(numRandomPregunta in session['preguntas']):
+      while(numRandomPregunta in session['preguntas']):
+        numRandomPregunta = random.randint(1, 6)
+      #session['preguntas'].append(numRandomPregunta)
+      print(session['preguntas'])
+      print(numRandomPregunta)
+    
+    if nivel == "50":
       numRandomPregunta = random.randint(7, 12)
-    #session['preguntas'].append(numRandomPregunta)
-    print(session['preguntas'])
-    print(numRandomPregunta)
-  
-  if nivel == "100":
-    numRandomPregunta = random.randint(13, 18)
-    while(numRandomPregunta in session['preguntas']):
+      while(numRandomPregunta in session['preguntas']):
+        numRandomPregunta = random.randint(7, 12)
+      #session['preguntas'].append(numRandomPregunta)
+      print(session['preguntas'])
+      print(numRandomPregunta)
+    
+    if nivel == "100":
       numRandomPregunta = random.randint(13, 18)
-    #session['preguntas'].append(numRandomPregunta)
+      while(numRandomPregunta in session['preguntas']):
+        numRandomPregunta = random.randint(13, 18)
+      #session['preguntas'].append(numRandomPregunta)
+      print(session['preguntas'])
+      print(numRandomPregunta)
+    
+    session['preguntas'].append(numRandomPregunta)
     print(session['preguntas'])
-    print(numRandomPregunta)
-  
-  session['preguntas'].append(numRandomPregunta)
-  print(session['preguntas'])
-  print(session['idLaptops'])
+    print(session['idLaptops'])
 
-  conn = sqlite3.connect('ODS.db')
-  q = f"""SELECT * FROM Preguntas 
-          WHERE id_preguntas = {numRandomPregunta}"""
-  print(conn.execute(q).fetchall())
-  for row in conn.execute(q):
-    pregunta1 = row[1]
-    print(pregunta1)
-    rta1 = row[2]
-    print(rta1)
-    rta2 = row[3]
-    print(rta2)
-    rta3 = row[4]
-    print(rta3)
-    rta4 = row[5]
-    print(rta4)
+    conn = sqlite3.connect('ODS.db')
+    q = f"""SELECT * FROM Preguntas 
+            WHERE id_preguntas = {numRandomPregunta}"""
+    print(conn.execute(q).fetchall())
+    for row in conn.execute(q):
+      pregunta1 = row[1]
+      print(pregunta1)
+      rta1 = row[2]
+      print(rta1)
+      rta2 = row[3]
+      print(rta2)
+      rta3 = row[4]
+      print(rta3)
+      rta4 = row[5]
+      print(rta4)
+    
+    session['shuffleRtas'] = []
+    session['shuffleRtas'].append(rta1)
+    session['shuffleRtas'].append(rta2)
+    session['shuffleRtas'].append(rta3)
+    session['shuffleRtas'].append(rta4)
+    respuestasMezcladas = random.sample(session['shuffleRtas'], len(session['shuffleRtas']))
   
-  session['shuffleRtas'] = []
-  session['shuffleRtas'].append(rta1)
-  session['shuffleRtas'].append(rta2)
-  session['shuffleRtas'].append(rta3)
-  session['shuffleRtas'].append(rta4)
-  respuestasMezcladas = random.sample(session['shuffleRtas'], len(session['shuffleRtas']))
-  
-  return render_template('preguntas.html', pregunta = pregunta1, respuesta1=respuestasMezcladas[0], respuesta2=respuestasMezcladas[1], respuesta3=respuestasMezcladas[2], respuesta4=respuestasMezcladas[3])
-  conn.close()
+    return render_template('preguntas.html', pregunta = pregunta1, respuesta1=respuestasMezcladas[0], respuesta2=respuestasMezcladas[1], respuesta3=respuestasMezcladas[2], respuesta4=respuestasMezcladas[3])
+    conn.close()
+
 
 @app.route("/game/final")
 def mostrar_final():
