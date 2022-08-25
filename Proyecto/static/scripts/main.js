@@ -86,5 +86,5 @@ function enviarRespuesta(boton) {
       //document.getElementById("id").submit();
       window.location = '/game';
     },
-    }); 
+    });
 }

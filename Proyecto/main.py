@@ -133,7 +133,7 @@ def mostrar_pregunta(nivel):
   session['shuffleRtas'].append(rta3)
   session['shuffleRtas'].append(rta4)
   respuestasMezcladas = random.sample(session['shuffleRtas'], len(session['shuffleRtas']))
-
+  
   return render_template('preguntas.html', pregunta = pregunta1, respuesta1=respuestasMezcladas[0], respuesta2=respuestasMezcladas[1], respuesta3=respuestasMezcladas[2], respuesta4=respuestasMezcladas[3])
   conn.close()
 

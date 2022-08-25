@@ -27,6 +27,12 @@ body{
     background-color: var(--gris-claro);
 }
 
+/*img {
+    pointer-events: none;
+    style="pointer-events: none;"
+}
+*/
+
 .contenedor{
     width: 100%;
     height: auto;
