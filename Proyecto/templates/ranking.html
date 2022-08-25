@@ -8,7 +8,7 @@
     <link href="{{ url_for('static', filename='styles/ranking_style.css') }}" rel="stylesheet">
 </head>
 <body>
-    <ol id="ranking">
+    <ol class="ranking">
         <H1>TOP 10:</H1>
         {% for linea in lineamostrar %}
         <li style="margin-bottom: 20px;">{{ linea }}</li>
