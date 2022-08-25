@@ -1,4 +1,3 @@
-from imp import reload
 from msilib.schema import Class
 import sqlite3
 import random
@@ -19,6 +18,8 @@ def index():
 @app.route("/register")
 def guardarnickname():
   session['preguntas'] = []
+  session['idLaptops'] = []
+  session['laptopsCorrectas'] = False
   return render_template('nickname.html')
   
 @app.route("/ranking")
@@ -37,6 +38,7 @@ def informacion():
 
 @app.route("/game", methods=['POST', 'GET'])
 def mostrar_juego():
+
   if request.method == 'POST':
     name = request.form['nombre']
     session['name'] = name
@@ -51,7 +53,8 @@ def mostrar_juego():
       conn.execute(q)
       conn.commit()
     conn.close()
-  return render_template('juego.html', puntosFinales = session['puntos'])
+  return render_template('juego.html', puntosFinales = session['puntos'], lista_desact = session['idLaptops'])
+
 
 @app.route("/puntos", methods=['POST', 'GET'])
 def guardar_puntaje():
@@ -71,19 +74,24 @@ def guardar_puntaje():
         
         if search in lista:
           session['puntos'] = session['puntos'] + 25
+          session['laptopsCorrectas'] = True
           print("se sumaron 25")
         elif search in lista2:
           session['puntos']= session['puntos'] + 50
+          session['laptopsCorrectas'] = True
           print("se sumaron 50")
         elif search in lista3:
           session['puntos'] = session['puntos'] + 100
+          session['laptopsCorrectas'] = True
           print("se sumaron 100")
   
   print(session['puntos'])
   return render_template('juego.html')
 
-@app.route("/game/pregunta/<nivel>")
-def mostrar_pregunta(nivel):
+@app.route("/game/pregunta/<nivel>/<id>")
+def mostrar_pregunta(nivel, id):
+  session['idLaptops'].append(id)
+
   if nivel == "25":
     numRandomPregunta = random.randint(1, 6)
     while(numRandomPregunta in session['preguntas']):
@@ -110,6 +118,7 @@ def mostrar_pregunta(nivel):
   
   session['preguntas'].append(numRandomPregunta)
   print(session['preguntas'])
+  print(session['idLaptops'])
 
   conn = sqlite3.connect('ODS.db')
   q = f"""SELECT * FROM Preguntas 
@@ -148,6 +157,7 @@ def mostrar_final():
   print(nicknameParaSumarPuntos)
   conn.commit()
   session.pop('preguntas', None)
+  session.pop('idLaptops', None)
   conn.close()
   return render_template('fin-juego.html', puntosFinales = session['puntos'])
 
