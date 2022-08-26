@@ -11,7 +11,7 @@
     <section class="contenedor">
         <div class="header">
             <div class="contenedor-chico">
-                <div class="imagen">
+                <div class="imagen" style="pointer-events: none;">
                     <img src="{{ url_for('static', filename = 'img/LOGO.png')}}" alt="" >
                 </div>
                 <div class="linea">
@@ -48,31 +48,66 @@
             {% if '2' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}>
-                <img id="2" name="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=25, id=2)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">
+                <img id="2" name="tablet-25" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=25, id=2)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '2' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+25_verde.png')}}"
+                {% elif '2' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+25_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}>
             </div>
             <div class="container" id="estilo-laptops"
             {% if '3' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}>
-                <img id="3" name="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=25, id=3)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">
+                <img id="3" name="tablet-25" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=25, id=3)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '3' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+25_verde.png')}}"
+                {% elif '3' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+25_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}>
             </div>
             <div class="container" id="estilo-laptops"
             {% if '4' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}>
-                <img id="4" name="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=25, id=4)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">
+                <img id="4" name="tablet-25"  alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=25, id=4)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '4' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+25_verde.png')}}"
+                {% elif '4' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+25_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}>
             </div>
             <div class="container" id="estilo-laptops"
             {% if '5' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}>
-                <img id="5" name="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=25, id=5)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">
+                <img id="5" name="tablet-25"  alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=25, id=5)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '5' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+25_verde.png')}}"
+                {% elif '5' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+25_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}>
             </div>
             <div class="container" id="estilo-laptops"
             {% if '6' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}>
-                <img id="6" name="tablet-25" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=25, id=6)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">
+                <img id="6" name="tablet-25"  alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=25, id=6)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '6' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+25_verde.png')}}"
+                {% elif '6' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+25_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}>
             </div>
         </div>
 
@@ -81,37 +116,79 @@
             {% if '7' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}>
-                <img id="7" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=50, id=7)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">
+                <img id="7"  alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=50, id=7)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '7' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+50_verde.png')}}"
+                {% elif '7' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+50_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}>
             </div>
             <div class="container" id="estilo-laptops"
             {% if '8' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}>
-                <img id="8" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=50, id=8)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">
+                <img id="8"  alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=50, id=8)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '8' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+50_verde.png')}}"
+                {% elif '8' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+50_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}>
             </div>
             <div class="container" id="estilo-laptops"
             {% if '9' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}> 
-                <img id="9" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=50, id=9)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">
+                <img id="9"  alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=50, id=9)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '9' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+50_verde.png')}}"
+                {% elif '9' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+50_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}>
             </div>
             <div class="container" id="estilo-laptops"
             {% if '10' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}>
-                <img id="10" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=50, id=10)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">
+                <img id="10"  alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=50, id=10)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '10' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+50_verde.png')}}"
+                {% elif '10' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+50_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}>
             </div>
             <div class="container" id="estilo-laptops"
             {% if '11' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}>
-                <img id="11" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=50, id=11)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">
+                <img id="11"  alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=50, id=11)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '11' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+50_verde.png')}}"
+                {% elif '11' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+50_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}>
             </div>
             <div class="container" id="estilo-laptops"
             {% if '12' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}>
-                <img id="12" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=50, id=12)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">
+                <img id="12"  alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=50, id=12)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '12' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+50_verde.png')}}"
+                {% elif '12' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+50_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}>
             </div>
         </div>
         
@@ -120,37 +197,79 @@
             {% if '13' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}>
-                <img id="13" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=100, id=13)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)" >
+                <img id="13"  alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=100, id=13)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '13' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+100_verde.png')}}"
+                {% elif '13' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+100_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}>
             </div>
             <div class="container" id="estilo-laptops"
             {% if '14' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}>
-                <img id="14" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=100, id=14)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">
+                <img id="14"  alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=100, id=14)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '14' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+100_verde.png')}}"
+                {% elif '14' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+100_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}>
             </div>
             <div class="container" id="estilo-laptops"
             {% if '15' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}>
-                <img id="15" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=100, id=15)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">
+                <img id="15"  alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=100, id=15)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '15' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+100_verde.png')}}"
+                {% elif '15' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+100_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}>
             </div>
             <div class="container" id="estilo-laptops"
             {% if '16' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}>
-                <img id="16" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=100, id=16)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)">
+                <img id="16"  alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=100, id=16)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '16' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+100_verde.png')}}"
+                {% elif '16' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+100_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}>
             </div>
             <div class="container" id="estilo-laptops"
             {% if '17' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}>
-                <img id="17" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=100, id=17)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)" >
+                <img id="17"  alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=100, id=17)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '17' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+100_verde.png')}}"
+                {% elif '17' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+100_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}>
             </div>
             <div class="container" id="estilo-laptops"
             {% if '18' in lista_desact %}
                 style="pointer-events: none;"
             {% endif %}>
-                <img id="18" src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}" alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=100, id=18)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)" >
+                <img id="18"  alt="" onclick="window.location.href='{{ url_for('mostrar_pregunta', nivel=100, id=18)}}';" onmouseover="changePic1(this.id)" onmouseout="changePic2(this.id)"
+                {% if '18' in lista_correctas %}
+                    src="{{ url_for('static', filename = 'img/+100_verde.png')}}"
+                {% elif '18' in lista_incorrecta %}
+                    src="{{ url_for('static', filename = 'img/+100_rojo.png')}}"
+                {% else %}
+                    src="{{ url_for('static', filename = 'img/tablet-apagada.png')}}"
+                {% endif %}>
             </div>
         </div>      
     </section>

@@ -59,7 +59,7 @@ def mostrar_juego():
         conn.execute(q)
         conn.commit()
       conn.close()
-    return render_template('juego.html', puntosFinales = session['puntos'], lista_desact = session['idLaptops'])
+    return render_template('juego.html', puntosFinales = session['puntos'], lista_desact = session['idLaptops'], lista_correctas = session['lista_correctas'], lista_incorrecta = session['lista_incorrecta'])
   else:
     return redirect("/game/final")
 
@@ -98,7 +98,7 @@ def guardar_puntaje():
   print(session['puntos'])
   print(session['lista_incorrecta'])
   print(session['lista_correctas'])
-  return render_template('juego.html')
+  return render_template('juego.html', lista_correctas = session['lista_correctas'], lista_incorrecta = session['lista_incorrecta'], lista_desact = session['idLaptops'], puntosFinales = session['puntos'])
 
 @app.route("/game/pregunta/<nivel>/<id>")
 def mostrar_pregunta(nivel, id):
