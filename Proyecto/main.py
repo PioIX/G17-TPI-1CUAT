@@ -14,6 +14,10 @@ def index():
   if 'preguntas' in session:
     preguntas = session['preguntas']
     print(preguntas)
+  
+  if 'lista_incorrecta' in session:
+    lista_incorrects = session['lista_incorrecta']
+    print(lista_incorrects)
   return render_template('index.html')
 
 @app.route("/register")
@@ -92,14 +96,13 @@ def guardar_puntaje():
           session['puntos'] = session['puntos'] + 100
           session['lista_correctas'].append(session['id'])
           print("se sumaron 100")
-        
-        if search not in lista and search not in lista2 and search not in lista3:
+        elif search not in lista and search not in lista2 and search not in lista3:
           session['lista_incorrecta'].append(session['id'])
   
   print(session['puntos'])
   print(session['lista_incorrecta'])
   print(session['lista_correctas'])
-  return render_template('juego.html', lista_correctas = session['lista_correctas'], lista_incorrecta = session['lista_incorrecta'], lista_desact = session['idLaptops'], puntosFinales = session['puntos'])
+  return render_template('juego.html')
 
 @app.route("/game/pregunta/<nivel>/<id>")
 def mostrar_pregunta(nivel, id):
