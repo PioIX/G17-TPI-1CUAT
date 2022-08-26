@@ -21,8 +21,8 @@ def guardarnickname():
   session['preguntas'] = []
   session['idLaptops'] = []
   session['preguntasCompletas'] = 0
-  session['lista_correctas'] = []
   session['lista_incorrecta'] = []
+  session['lista_correctas'] = []
   #session['laptopsCorrectas'] = False
   return render_template('nickname.html')
   
@@ -92,7 +92,8 @@ def guardar_puntaje():
           session['puntos'] = session['puntos'] + 100
           session['lista_correctas'].append(session['id'])
           print("se sumaron 100")
-        else:
+        
+        if search not in lista and search not in lista2 and search not in lista3:
           session['lista_incorrecta'].append(session['id'])
   
   print(session['puntos'])
