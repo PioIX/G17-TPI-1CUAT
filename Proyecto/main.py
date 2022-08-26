@@ -14,10 +14,6 @@ def index():
   if 'preguntas' in session:
     preguntas = session['preguntas']
     print(preguntas)
-  
-  if 'lista_incorrecta' in session:
-    lista_incorrects = session['lista_incorrecta']
-    print(lista_incorrects)
   return render_template('index.html')
 
 @app.route("/register")
