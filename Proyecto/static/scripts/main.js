@@ -70,10 +70,6 @@ function changePic2(imagen){
   
 }
 
-function cambiarTexto() {
-  var texto = "Hola";
-  document.getElementById("preguntilla").innerHTML = texto;
-}
 
 function enviarRespuesta(boton) {
   console.log(boton)
