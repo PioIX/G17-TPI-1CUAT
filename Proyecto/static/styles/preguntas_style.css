@@ -23,7 +23,7 @@ body{
 
 .contenedor{
     width: 95%;
-    height: auto;
+    height: 85vh;
     margin: auto;
     background-color: var(--gris-claro);
     margin-top: 3%;
@@ -90,12 +90,12 @@ body{
 
 .pregunta{
     width: 100%;
-    font-size: 3em;
+    font-size: 2rem;
     text-align: center;
 }
 
 .respuesta{
     width: 100%;
-    font-size: 3em;
+    font-size: 1.5rem;
     text-align: center;
 }
