@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de nosotros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename ='styles/acerca_de_nosotros_style.css') }}">
+</head>
+<body>
+    <section class="contenedor">
+        <div class="header">
+            <div class="contenedor-chico">
+                <div class="ayuda">
+                    <div class="texto">
+                        QUIENES SOMOS 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contenedor-imagen">
+        <div class="imagen">
+            <img src="{{ url_for('static', filename = 'img/nosotros.jpeg')}}" alt="" class="nosotros">
+        </div>
+
+        <div class="informacion">
+            <p>  
+                Somos Matteo Bobasso, Ramiro Boulos, Augusto Florio, Gabriel Iacomini y Felipe Vega Torre. Formamos parte del grupo 17 y desarrollamos este juego para poder hacer llegar a todas las personas los objetivos de los distintos ODS de la agenda 2030. </br> 
+            </br>
+
+                Los encargados de desarrollar el front-end fueron Ramiro Boulos, Gabriel Iacomini y Felipe Vega Torre, mientras que los encargados de desarrollar el back-end fueron Matteo Bobasso y Augusto Florio. </br>
+            </br>
+
+                Cada uno de nosotros formo parte del desarrollo y modelado del juego, la informacion que se brinda y las preguntas que incluye el juego. </br>
+            </br>
+                Colegio Pio IX </br>
+            </br>
+                2022
+            </p>
+        </div>
+    </section>
+
+    <footer class="pie-de-pagina">
+        <div class="inicio">
+            <img src="{{ url_for('static', filename = 'img/casa-inicio.jpg')}}" alt="" href="" onclick="window.location.href='{{ url_for('index')}}';">
+        </div>
+    </footer>
+</body>
+</html>

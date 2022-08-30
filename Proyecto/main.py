@@ -42,6 +42,10 @@ def ranking():
 def informacion():
   return render_template('ayuda.html')
 
+@app.route("/acercaDeNosotros")
+def acercaDe():
+  return render_template('acerca_de_nosotros.html')
+
 @app.route("/game", methods=['POST', 'GET'])
 def mostrar_juego():
   if session['preguntasCompletas'] < 18:
