@@ -1,0 +1,125 @@
+@font-face {
+font-family: 'Adventure-Subtitles';
+src:url('Fonts/Adventure-Subtitles.ttf.woff') format('woff'),
+    url('Adventure-Subtitles.ttf.svg#Adventure-Subtitles') format('svg'),
+    url('Fonts/Adventure-Subtitles.ttf.eot'),
+    url('Adventure-Subtitles.ttf.eot?#iefix') format('embedded-opentype'); 
+font-weight: normal;
+font-style: normal;
+}
+
+:root{
+    --gris-medio-claro:  #474646;
+    --gris-oscuro: #1C262A; 
+    --violeta:  #C8B6FF;
+    --blanquito: #E7ECEF;
+    --gris-claro:  #A6A6A6;
+    --neon: 0 0 2px #C8B6FF,0 0 30px #C8B6FF,0px 0px 5px #b3a1e8, 0 0 150px #b19fe4;
+    --neon-blanquito: 0 0 2px #f6f3ff,0 0 30px #f8f6ff,0px 0px 5px #f2f0fa, 0 0 150px #f0eef7;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: var(--gris-claro);
+}
+
+.contenedor{
+    width: 100%;
+    height: auto;
+    
+}
+
+.header{
+    width: 100%;
+    height: auto;
+    
+}
+
+.contenedor-chico{
+    width: 30%;
+    height: 90px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 5vh;
+    
+}
+
+.texto{
+    color: var(--violeta);
+    text-shadow: var(--neon);
+    font-size: 3.5em;
+    font-family: 'Adventure-Subtitles';
+    -webkit-text-stroke: 0.3px #7256c9;
+}
+
+.contenedor-imagen{
+    width: 90%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.imagen{
+    display: flex;
+    justify-content: center;
+}
+
+.nosotros{
+    width: 80%;
+    height: 95%;
+    align-self: center;
+    border-radius: 30px;
+}
+
+
+.informacion{
+    width: 40%;
+    height: 95%;
+    background-color: var(--gris-oscuro);
+    border-radius: 25px;
+    text-align: justify;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.informacion p{
+    color:var(--blanquito);
+    padding: 20px;
+    font-size: 1.5em;
+    line-height: 1.4em;
+    font-family: 'Adventure-Subtitles';
+}
+
+.pie-de-pagina{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+}
+
+.inicio{
+    width: 20%;
+    margin-left: 70px;
+    
+}
+
+.inicio img{
+    width: 60px;
+    height: 60px;
+}
+
+.inicio img:hover{
+    cursor: pointer;
+
+}
